@@ -1,0 +1,1600 @@
+Using PHP to write desktop GUI implementations:
+REF: http://gtk.php.net/
+
+NEW REFS:
+4-04 -----------------------------------------------------------------------
+REF: http://www.php.net/manual/en/install.windows.iis7.php
+
+http://ilia.ws/files/confoo_php54.pdf
+http://en.wikipedia.org/wiki/List_of_AMP_packages
+http://qbnz.com/highlighter/
+
+Q: Any tutorials on ZS for debugging?
+A: http://www.developertutorials.com/tutorials/php/php-debugging-with-zend-studio-8-02-01-938/
+A: http://files.zend.com/help/Zend-Studio/working_with_the_debugger.htm
+A: http://www.zend.com/en/webinar/Studio/70170000000bRlc-webinar-intro-zs-8-taking-php-dev-next-level-20101110.flv
+
+NOTE: put VM setup notes on etherpad + vhost definition files
+
+Excellent overview of PHP:
+http://en.wikipedia.org/wiki/PHP
+
+Sampling of PHP tutorials:
+http://php.net/manual/en/tutorial.php
+http://devzone.zend.com/article/627
+http://www.tutorialized.com/tutorials/PHP/1
+http://www.w3schools.com/php/
+
+Webinar:
+http://www.zend.com/en/company/news/event/webinar-new-spl-features-for-php-5-3
+
+Appendices:
+http://www.php.net/manual/en/appendices.php
+
+VM SETUP --------------------------------------------------------------------
+
+Keyboard Setup:
+
+1.	Unzip VM
+2.	Click on black terminal icon
+3.	Select the keyboard which most closely matches yours
+4.	If choices do not reflect your situation, proceed as follows:
+	A. System - Preferences - Keyboard - Layouts - Add
+	B. Select the keyboard country and layout which best fits your situation
+	C. Add this layout and make it the default
+
+Zend Studio:
+
+1.	Click on the green ball
+2.	Wait for the license message to appear
+3.	File - Switch Workspace - Other
+		A. Enter "/workspace" and OK
+		B. Wait for Zend Studio to restart
+4.	You should now see 5 projects listed in the explorer tree to the left
+
+zBlog Project Database:
+
+1.	Need to set the permissions on the database so that people can make comments, etc.
+
+
+TYPOS -----------------------------------------------------------------------
+
+Slide outline Mod 2 = has no relation to content of slides!
+2-48 too many " in the line which contains <br />
+2-55 s/be $myArray = array(1,2,3,4); no "&" inside (); $arr[$i] doesn't make sense
+2-55 Suggested rewrite:
+<?php
+$arr = array(1,2,3,4);
+$i = 0;
+foreach ($arr as $value) {
+	$arr[$i++] = $value*2;
+}
+var_dump($arr)
+// OR -- references discussed later
+$arr = array(1,2,3,4);
+$i = 0;
+foreach ($arr as &$value) {
+	$value *= 2;
+}
+var_dump($arr)
+?>
+
+3-03 s/be "The require commands ... " not the *required* commands
+3-21 2nd bullet s/be FROM an array
+3-43 This exercise has class do the same thing as the previous
+
+4-5 Microsfot
+4-5 Microsfot???
+4-6 httpd.conf
+
+5-6 Last line: s/be "." not "*"
+5-20 last s/be lowercase u
+5-21 s/be ctype not dtype
+
+
+7-17 s/be new newClass();
+7-18 s/be $obj->getName() *not* $ubj->getName()
+7-22 improper programming!  S/be:
+<?php
+class Test1 {
+	public function f2()
+	{
+		return 'f2';
+	}
+}
+
+class Test2 extends Test1 {
+	public function f1()
+	{
+		return $this->f2() . parent::f2();
+	}
+	public function f2()
+	{
+		return 'f3';
+	}
+}
+
+$a = new Test2();
+echo $a->f1();
+
+?>
+7-33 s/be self::$obj = new myClass();
+7-42 missing ":" in ternary operator + commented text
+8-06 s/be "unique" not "uniques"
+8-37 3rd missing "query"
+
+2-00 -----------------------------------------------------------------------
+Order of Precedence: http://www.reddit.com/r/PHP/comments/mw2iy/dear_php_wtf/
+
+3-09 -----------------------------------------------------------------------
+NOTE: function names in PHP are case insensitive
+
+3-14 -----------------------------------------------------------------------
+NOTE: as of PHP 4.2.0 register_globals defaulted to OFF
+
+3-17 -----------------------------------------------------------------------
+Alternate syntax:
+
+$ref0 =& $origVar;
+
+3-18 -----------------------------------------------------------------------
+DEMO: references_are_not_pointers.php
+
+3-19 -----------------------------------------------------------------------
+DEMO: array_nesting_level_test.php
+
+3-21 -----------------------------------------------------------------------
+EXAMPLE (from: product_search.php)
+// Read CSV into an array $line[]
+$line = fgetcsv($handle, 4096);
+// Separates elements of array into independent variables
+list($sku, $pid, $unit, $cost, $qty) = $line;
+
+3-26 -----------------------------------------------------------------------
+Predefined constants:
+REF: http://us.php.net/manual/en/filesystem.constants.php
+REF: http://us.php.net/manual/en/reserved.constants.php
+REF: http://www.php.net/manual/en/stream.constants.php
+etc.
+
+3-38 -----------------------------------------------------------------------
+fscanf() useful for reading formatted input from a mainframe; uses same formatting as printf()
+fsockopen() can be used to open a port on a mainframe
+
+3-45 -----------------------------------------------------------------------
+Performance difference between file_get_contents() and fopen()
+REF: http://www.ebrueggeman.com/php_benchmarking_fopen.php
+
+3-52 -----------------------------------------------------------------------
+REF: http://php.net/manual/en/stream.examples.php
+REF: http://www.php.net/manual/en/wrappers.php
+NOTE: you can also run ssh commands
+REF: http://www.php.net/manual/en/wrappers.ssh2.php
+
+4-04 -----------------------------------------------------------------------
+REF: http://en.wikipedia.org/wiki/List_of_AMP_packages
+
+4-16 -----------------------------------------------------------------------
+REF: http://www.php.net/manual/en/install.windows.iis7.php
+
+05-08 -----------------------------------------------------------------------
+Q: What is "\G" in a regex?
+A: The \G assertion is true only when the current matching position is at the start point of the match,
+   as specified by the offset argument of preg_match(). It differs from \A when the value of offset is non-zero.
+   see: http://us2.php.net/manual/en/regexp.reference.escape.php
+
+05-10 -----------------------------------------------------------------------
+array  preg_grep  (  string $pattern  ,  array $input  [,  int $flags = 0  ] )
+  Returns the array consisting of the elements of the input array that match the given pattern.
+string preg_quote( string $str  [,  string $delimiter = NULL  ])
+  Takes str  and puts a backslash in front of every character that is part of the regular expression syntax.
+  This is  useful if you have a run-time string that you need to match in some text and the string may contain special
+  regex characters.  The special regular expression characters are: . \ + * ? [ ^ ] $ ( ) { } = ! < > | : -
+array  preg_split  (  string $pattern  ,  string $subject  [,  int $limit = -1  [,  int $flags = 0  ]] )
+  Split the given string by a regular expression.
+REF: http://www.php.net/manual/en/book.pcre.php
+
+6-24 -----------------------------------------------------------------------
+CODEBREAK M6Ex2: output buffering
+Place code in index.php
+
+6-30 -----------------------------------------------------------------------
+CODEBREAK M6Ex3: browser caching / ETAG LAB
+This codes goes in ArticleController.php after line 96
+// general recommended headers
+header('Expires: '
+        . gmdate('D, d M Y H:i:s', $entry->modified + 31536000)
+        . ' GMT');
+header('Pragma: cache');
+header('Cache-Control: public, must-revalidate, max-age=0');
+
+6-38 -----------------------------------------------------------------------
+CODEBREAK M6Ex4: COOKIE LAB
+1.    Look Over These Files:
+    zblogapp/application/views/scripts/index/index.phtml
+    zblogapp/application/views/helpers/Mainpage.php
+2.    Notice how $_COOKIE is referenced
+3.    Set a cookie in zblogapp/application/controllers/IndexController.php:
+    Add a public function "togglepreviewAction()" which sets or unsets the cookie
+    Don't forget to redirect and exit!
+
+6-50 -----------------------------------------------------------------------
+CODEBREAK M6Ex6: SESSION LAB
+zblogapp/application/controllers/ArticleController.php
+--> need to store $entry (after line 89) into $_SESSION
+zblogapp/application/views/helpers/ColumnLeft.php
+--> somewhere before line 53, read $entry from $_SESSION and display
+--> set up an <a href="">xxx</a> tag
+--> "read" an article and notice the syntax you need
+--> use $article->entry_id to get the ID# for the article
+
+7-33 -----------------------------------------------------------------------
+REF: http://en.wikipedia.org/wiki/Singleton_pattern
+
+
+071 -----------------------------------------------------------------------
+Functions can only return one value.
+Q: How do you return more than one value?
+A: Either return an array, an object, or use references.
+
+075 -----------------------------------------------------------------------
+NOTE: 	*_once only works at the file level.  If the same function is redefined, an error is generated.
+	You can use function_exists() to check before including or requiring to prevent this problem.
+*_once involves slightly more overhead because PHP has to check to see if that file has been included or not
+
+082 -----------------------------------------------------------------------
+Scope is also affected by the use of "namespace" (covered later)
+
+088 -----------------------------------------------------------------------
+DEMO: static.php
+
+089 -----------------------------------------------------------------------
+DEMO: references_are_not_pointers.php
+
+095 -----------------------------------------------------------------------
+See also: http://www.php.net/manual/en/ini.core.php#ini.open-basedir
+
+099 -----------------------------------------------------------------------
+Also: 	file() = reads a file into an array
+	readfile() = reads a file and sends directly to output
+	fpassthru() = same as readfile() except operates on a file handle
+DEMO: readfile_fpassthru_etc.php
+
+102 -----------------------------------------------------------------------
+Also: 	"x" and "x+" = so-called "exclusive" open.
+	Same as "w" and "w+" except that an error is generated if file already exists
+REF:	http://www.php.net/manual/en/function.fopen.php
+
+REF:	http://www.php.net/manual/en/context.php
+
+107 -----------------------------------------------------------------------
+TIP: If you are using fopen and fread to read HTTP or FTP or Remote Files, and experiencing some
+performance issues such as stalling, slowing down and otherwise, then it's time you learned a thing called cURL.
+REF: http://www.php.net/manual/en/function.fopen.php
+     comment 17-Oct-2005 02:34
+DEMO: hex_dump.php
+
+113 -----------------------------------------------------------------------
+Skip and go to next slide
+
+114 -----------------------------------------------------------------------
+CODEBREAK:
+0.	From Zend Studio inside VM open the zblogapp project
+1.	Create a file /public/filelist.php
+2.	Write code which recursively scans the /workspace/zblogapp directory
+	and produces a list of all files
+3.	Hint: have a look at the "glob()" function
+
+118 -----------------------------------------------------------------------
+NOTE TO DEIRDRE: instructor notes on slide #126 should appear here, otherwise the exercise will fail!
+
+123 -----------------------------------------------------------------------
+Also note:
+fsockopen() is a streams based function which lets you open a socket on a remote server
+REF: http://www.php.net/manual/en/function.fsockopen.php
+
+125 -----------------------------------------------------------------------
+REF: http://www.php.net/manual/en/function.stream-context-create.php
+Example: Using Streams to Send "Tweets"
+
+<?php
+function tweet($message, $username, $password)
+{
+  $context = stream_context_create(array(
+    'http' => array(
+      'method'  => 'POST',
+      'header'  => sprintf("Authorization: Basic %s\r\n", base64_encode($username.':'.$password)).
+                   "Content-type: application/x-www-form-urlencoded\r\n",
+      'content' => http_build_query(array('status' => $message)),
+      'timeout' => 5,
+    ),
+  ));
+  $ret = file_get_contents('http://twitter.com/statuses/update.xml', false, $context);
+
+  return false !== $ret;
+}
+?>
+
+Pretty easy, no? Using the tweet() function is of course a piece of cake:
+
+<?php
+tweet('From PHP, yeah...', 'fabpot', 'Pa$$');
+?>
+
+134 -----------------------------------------------------------------------
+DEMO: http://localhost:10081/
+      (Zend Server on the VM)
+
+135 -----------------------------------------------------------------------
+REF: http://www.puppetlabs.com/puppet/introduction/
+
+136 -----------------------------------------------------------------------
+Look at phpinfo() -- main screen -- for location of php.ini
+In .htaccess (can be used only with PHP_INI_ALL and PHP_INI_PERDIR type directives)
+php_value <php.ini param> <value>
+php_flag <php.ini param> <on|off>
+REF: http://php.net/manual/en/configuration.changes.php
+ini_set() -- see slide #143
+
+139 -----------------------------------------------------------------------
+REF: http://www.php.net/manual/en/apache.configuration.php#ini.engine
+Turns PHP parsing on or off. This directive is really only useful in the Apache module version of PHP. It is used by sites that would like to turn PHP parsing on and off on a per-directory or per-virtual server basis. By putting engine off  in the appropriate places in the httpd.conf file, PHP can be enabled or disabled.
+output_buffering = for ALL files; you can also use ob_start() in an individual file for more control
+
+141 -----------------------------------------------------------------------
+max_execution_time = 30 seconds by default
+Apache also has a "timeout" directive which defaults to 300 secs
+REF: http://httpd.apache.org/docs/2.2/mod/core.html#timeout
+
+142 -----------------------------------------------------------------------
+safe_mode: When safe_mode is on, PHP checks to see if the owner of the current script matches the owner of the file to be operated on by a file function or its directory.
+REF: http://www.php.net/manual/en/ini.sect.safe-mode.php#ini.safe-mode
+Great discussion on safe mode and why it will be removed:
+http://www.breakingpointsystems.com/community/blog/php-safe-mode-considered-harmful
+See Also:
+open_basedir  <string>
+    Limit the files that can be opened by PHP to the specified directory-tree, including the file itself. This directive is NOT affected by whether Safe Mode is turned On or Off.
+REF: http://us2.php.net/manual/en/ini.core.php#ini.open-basedir
+disable_functions  <string>
+    This directive allows you to disable certain functions for security reasons. It takes on a comma-delimited list of function names. disable_functions is not affected by Safe Mode. This directive must be set in php.ini For example, you cannot set this in httpd.conf.
+disable_classes <string>
+    This directive allows you to disable certain classes for security reasons. It takes on a comma-delimited list of class names. disable_classes is not affected by Safe Mode. This directive must be set in php.ini For example, you cannot set this in httpd.conf.
+REF: http://us2.php.net/manual/en/ini.core.php#ini.disable-functions
+
+143 -----------------------------------------------------------------------
+ini_set() -- for most parameters (can be used only with PHP_INI_ALL and PHP_INI_USER type directives)
+REF: http://www.php.net/manual/en/function.ini-set.php
+REF: http://php.net/manual/en/configuration.changes.modes.php
+
+151 -----------------------------------------------------------------------
+Last line should read: "." indicates any single character (not "*")
+
+161 -----------------------------------------------------------------------
+Pattern modifier should be lowercase "i"
+
+163 -----------------------------------------------------------------------
+REF: http://www.php.net/manual/en/reference.pcre.pattern.modifiers.php
+X (PCRE_EXTRA)
+    This modifier turns on additional functionality of PCRE that is incompatible with Perl. Any backslash in a pattern that is followed by a letter that has no special meaning causes an error, thus reserving these combinations for future expansion. By default, as in Perl, a backslash followed by a letter with no special meaning is treated as a literal. There are at present no other features controlled by this modifier.
+Differences from PERL: http://www.php.net/manual/en/reference.pcre.pattern.differences.php
+
+165 -----------------------------------------------------------------------
+Last entry s/be "u" = utf-8 (not "U")
+REF: http://us.php.net/manual/en/reference.pcre.pattern.modifiers.php
+
+166 -----------------------------------------------------------------------
+s/be "ctype_digit()" not "dtype_digit()"
+
+170 -----------------------------------------------------------------------
+
+180 -----------------------------------------------------------------------
+DEMO: php_exp/redirect/index.php
+header("Location: http://x.y.z");
+Q: What's another way to manipulate headers?
+A: Create a stream context.
+
+181 -----------------------------------------------------------------------
+GET data by default is substantially less than 8K
+REF: http://httpd.apache.org/docs/2.2/mod/core.html#limitrequestline
+POST = no limit by default
+REF: http://httpd.apache.org/docs/2.2/mod/core.html#limitrequestbody
+
+182 -----------------------------------------------------------------------
+Q: What are other places you could retrieve GET and POST data?
+A: $_REQUEST or $HTTP_GET_VARS and $HTTP_POST_VARS if register_long_arrays = on
+Q: What is the precedence for stuff in $_REQUEST
+A: If php.ini param "request_order" is set, looks there, otherwise looks in "variables_order"
+   This is set to "EGPCS".
+REF: http://www.php.net/manual/en/ini.core.php#ini.variables-order
+
+185 -----------------------------------------------------------------------
+DEMO: Firebug
+
+187 -----------------------------------------------------------------------
+CODEBREAK:
+1.	Use phpinfo(INFO_VARIABLES) to show data being sent
+
+192 -----------------------------------------------------------------------
+DEMO: ob_start_ob_get.php
+
+194 -----------------------------------------------------------------------
+Etag = like version control
+
+6-30 -----------------------------------------------------------------------
+CODEBREAK M6Ex3:
+"Tailing" = use the "tail" command
+
+TEST YOUR SOLUTION FROM A TERMINAL WINDOW IN THE VM AS FOLLOWS:
+sudo tail /var/log/apache2/access.log
+
+File to modify: zblogapp/application/controllers/ArticleController.php
+HEADER CODE:
+header('Expires: '.gmdate("D, d M Y H:i:s", $entry->modified+31536000) . " GMT");
+header('Last-Modified: '.gmdate("D, d M Y H:i:s", $entry->modified) . " GMT");
+header("Pragma: cache");
+header("Cache-Control: public, must-revalidate, max-age=0");
+ADD:
+1.	Create your own eTag
+2.	Send it to the browser
+3.	Check "HTTP_IF_NONE_MATCH"
+4.	If the same as your eTag, send code 304 and exit
+
+206 -----------------------------------------------------------------------
+DEMO: cookie_solution.php
+
+6-38 -----------------------------------------------------------------------
+CODEBREAK M6Ex4:
+1.	Look Over These Files:
+	zblogapp/application/views/scripts/index/index.phtml
+	zblogapp/application/views/helpers/Mainpage.php
+2.	Notice how $_COOKIE is referenced
+3.	Set a cookie in zblogapp/application/controllers/IndexController.php:
+	Add a public function "togglepreviewAction()" which sets or unsets the cookie
+	copy zblogapp/application/views/scripts/index/index.phtml into
+	zblogapp/application/views/scripts/index/togglepreview.phtml
+
+210 -----------------------------------------------------------------------
+More on this in slide #212
+SEE: session_set_save_handler.php
+REF: http://www.php.net/manual/en/session.configuration.php#ini.session.auto-start
+session.gc_ = garbage collection parameters
+If php.ini parameter session.use_trans_sid = 1 then the system uses URL rewriter variables to transmit session ID
+Otherwise the default is to use cookies
+Last statement is true if session.auto_start = 1
+
+211 -----------------------------------------------------------------------
+REF: http://www.php.net/manual/en/session.configuration.php#ini.session.cache-expire
+
+213 -----------------------------------------------------------------------
+Q: Why is it important to destroy a session?
+A: It erases the recorded session data physically from the server
+
+216 -----------------------------------------------------------------------
+zblogapp/application/controllers/LoginController.php -- lines 28 - 32
+zblogapp/application/controllers/LogoutController.php -- session_destroy()
+
+219 -----------------------------------------------------------------------
+REF: http://pear.php.net/manual/en/package.mail.mail-mime.php
+REF: https://github.com/Synchro/PHPMailer
+
+222 -----------------------------------------------------------------------
+DEMO: email.php
+DEMO: email_sendmail_html.php
+DEMO: email_with_attachment.php
+
+225 -----------------------------------------------------------------------
+DEMO: imap_open.php
+
+227 -----------------------------------------------------------------------
+CODEBREAK M6Ex7:
+
+zblogappwork/config/config.inc.php = config file to modify
+zblogappwork/application/controllers/ArticleController.php = add code after line 71
+
+EMAIL NOTES:
+REF: http://www.php.net/manual/en/function.mail.php
+Example #4 -- how to send HTML mail using mail();
+NOTE: it is recommended that PEAR::Mail_Mime be used for HTML email
+Comment by "Tomix" 17-Jan-2008: how to send e-mail in utf-8
+
+233 -----------------------------------------------------------------------
+DEMO: form_submit_multi_array.php
+
+239 -----------------------------------------------------------------------
+
+240 -----------------------------------------------------------------------
+OOP
+
+249 -----------------------------------------------------------------------
+DEMO: oop_construct_param.php
+
+250 -----------------------------------------------------------------------
+DEMO: oop_destruct.php
+
+255 -----------------------------------------------------------------------
+DEMO: oop_static.php
+
+256 -----------------------------------------------------------------------
+WAIT UNITL THE END of the OOP SECTION FOR THIS!!!
+CODEBREAK:
+1.	Create a "registry" mechanism (i.e. a place to temporarily store values )
+	which works like $GLOBALS
+2.	Create the class in a separate file located under lib/zblog/util
+        which implements the interface Store (see below)
+3.	Name the PHP file the same as the name of the class
+4.	To include the file, place this statement at the top of the controller after "namespace":
+	use \zblog\util\ZZZ as ZZZ where "ZZZ" is the name of your class and php file
+5.	To use the mechanism do something like this:
+	ZZZ::set('xyz')  and then later ZZZ::get('xyz')
+6.	Make sure that if the object is accidentally instantiated an exception is thrown
+7.	Use your newly created mechanism to store a value and retrieve it several times
+8.	HINT: look at lib/util/Validators.php and then see how it is used in ArticleController.php
+
+interface Store {
+	public function get($name);
+	public function set($name,$value);
+}
+
+7-24 -----------------------------------------------------------------------
+EXAMPLE: show API for Zend_Validate_Interface and then Zend_Validate
+REF: http://www.php.net/manual/en/language.oop5.interfaces.php
+
+7-28 -----------------------------------------------------------------------
+REF: http://en.wikipedia.org/wiki/Design_pattern_%28computer_science%29
+
+271 -----------------------------------------------------------------------
+EXAMPLE: show API for Zend_Db_Adapter_Abstract and then Zend_Db_Adapter_Db2
+
+273 -----------------------------------------------------------------------
+Often used with "factory" classes
+EXAMPLE: http://docs.joomla.org/JFactory/getDBO
+
+281 -----------------------------------------------------------------------
+DEMO: oop_clone.php
+
+284 -----------------------------------------------------------------------
+Comments and whitespace before "namespace" command are OK
+Using PHP keywords as part of your namespace will cause a parser error
+REF: http://www.php.net/manual/en/language.namespaces.definition.php
+Multiple Namespaces in one file: not tricky
+REF: http://www.php.net/manual/en/language.namespaces.definitionmultiple.php
+The trick is to encase "global" code as follows:
+namespace x {
+// code for x
+}
+namespace y {
+// code for y
+}
+namespace {
+// global code
+}
+
+285 -----------------------------------------------------------------------
+REF: http://www.php.net/manual/en/language.namespaces.rationale.php
+For constants defined with "define()" you need to include the namespace in the definition
+REF: http://www.php.net/manual/en/language.namespaces.definition.php
+(See comment by Dan Bettles)
+
+286 -----------------------------------------------------------------------
+REF: http://www.php.net/manual/en/language.namespaces.nested.php
+Namespaces:
+Example 1: Look at zblogapp/models/Blogs.php and then look at ArticleController.php lines 92 & 98
+Example 2: Look at lib/zblog/util/Validators.php and then look at ArticleController.php lines 47,52,57
+
+interface Store {
+	/**
+	* @param $name = name of parameter to retrieve
+	*/
+	public function get($name);
+	/**
+	* @param $name = name of parameter
+	* @param $value = value to be stored
+	*/
+	public function set($name,$value);
+}
+
+290 -----------------------------------------------------------------------
+How to get phpmyadmin working in the VM:
+From a terminal window:
+1.	Test mysql as follows:
+	/usr/local/mysql/bin/mysql -u root
+2.	sudo apt-get install phpmyadmin
+	select 'apache2' when prompted
+3.	sudo mkdir /var/run/mysqld
+4.	sudo ln -s /tmp/mysql.sock /var/run/mysqld/mysqld.sock
+5.	sudo ln -s /usr/share/phpmyadmin /workspace/phpmyadmin
+6.	Test in browser: http://localhost/phpmyadmin
+	login as 'root' with no password
+cd
+298 -----------------------------------------------------------------------
+REF: http://dev.mysql.com/doc/refman/5.1/en/sql-syntax.html
+
+301 -----------------------------------------------------------------------
+REF: http://us.php.net/manual/en/book.mysqli.php
+The mysqli extension has a number of benefits, the key enhancements over the mysql extension being:
+    * Object-oriented interface
+    * Support for Prepared Statements
+    * Support for Multiple Statements
+    * Support for Transactions
+    * Enhanced debugging capabilities
+    * Embedded server support
+Main advantage of PDO is portability
+
+306 -----------------------------------------------------------------------
+Useful when small footprint required + testing and development
+Doesn't scale very well
+No security or stored procedures
+Used by Adobe, Apple (esp. iPhone), Firefox, Thunderbird, Google (Android and Chrome), McAfee, Microsoft (in games), Skype, and symbian (cell phones)
+REF: http://www.sqlite.org/famous.html
+
+307 -----------------------------------------------------------------------
+See slide 322
+
+310 -----------------------------------------------------------------------
+REF: http://www.php.net/manual/en/class.pdo.php
+
+8-35 ----------------------------------------------------------------------
+REF: http://php.net/manual/en/features.persistent-connections.php
+REF: http://stackoverflow.com/questions/1157099/downside-to-using-persistent-connections
+
+8-37 ----------------------------------------------------------------------
+CODEBREAK M8ex3: database access
+
+Additional Instructions:
+
+1.    Open application/models/Comments.php
+2.    Look for method "getAllComments()"
+3.    Use code from "getComments()" (above) as an example to modify
+4.    To test: login as "administrator" with a password of "password"
+5.    Click on "Manage Comments"
+       If your implementation works, you'll see all comments listed
+
+311 -----------------------------------------------------------------------
+DEMO: db_mysql_connect.php
+
+312 -----------------------------------------------------------------------
+DEMO: db_pdo_select.php
+
+316 -----------------------------------------------------------------------
+DEMO: db_pdo_select.php -- line 21
+DEMO: db_pdo_fetch_obj.php
+
+319 -----------------------------------------------------------------------
+DEMO: from mysql prompt "call cost()";
+DEMO: pdo_stored_procedure.php
+
+320 -----------------------------------------------------------------------
+3rd line should read:
+SELECT COUNT(*) INTO cnt FROM users WHERE id > gt
+
+321 -----------------------------------------------------------------------
+DEMO: pdo_stored_procedure_interactive.php
+
+ORM design pattern: also note "Doctrine" and "Object Freezer"
+REF: http://www.slideshare.net/weierophinney/architecting-your-models
+
+326 -----------------------------------------------------------------------
+#326 CODEBREAK:
+	1.    Change the name of /workspace/zblogapp/data/ blogdb.sqlite
+    to something else
+2.    Verify that the zblog app is broken
+3.    Download the SQL file into the /workspace directory
+      wget http://opensource.unlikelysource.com/blogdb-mysql.sql
+3.    Import blogdb-mysql.sql into MySQL using phpmyadmin
+4.    Modify lib/zblog/data/Adapter:
+$db = "mysql:host=localhost;dbname=blogdb";
+self::$dbAdapter = new Adapter(new \PDO($db,'blogdb','password'));
+
+329 -----------------------------------------------------------------------
+REF: http://meta.wikimedia.org/wiki/Why_persistent_connections_are_bad
+
+333 -----------------------------------------------------------------------
+RE: Code Coverage of Unit Tests:
+REF: http://www.phpunit.de/manual/3.6/en/code-coverage-analysis.html
+REF: http://www.phpunit.de/manual/current/en/writing-tests-for-phpunit.html
+Martin Fowler:
+Whenever you are tempted to type something into a print statement or a debugger expression, write it as a test instead.
+
+336 -----------------------------------------------------------------------
+DEMO: debug zblogapp using Run - Debug URL
+
+337 -----------------------------------------------------------------------
+Point out params which appear in the URL from debugging.  That's what this slide is all about
+
+340 -----------------------------------------------------------------------
+Q: How do you find the locations of these files?
+A: phpinfo(), httpd.conf, /var/log
+
+347 -----------------------------------------------------------------------
+DEMO: http://api.joomla.org/
+NOTE: in the 1st paragraph, mentions phpDocumenter
+REF: http://www.phpdoc.org/
+
+358 -----------------------------------------------------------------------
+DEMO: http://soap.amazon.com/schemas2/AmazonWebServices.wsdl
+DEMO: http://www.weather.gov/forecasts/xml/DWMLgen/wsdl/ndfdXML.wsdl
+
+363 -----------------------------------------------------------------------
+NOTE: the WSDL generator was pulled out of ZS for improvements; didn't make it into the latest release
+Open Source WSDL Generators:
+http://www.phpclasses.org/package/3509-PHP-Generate-WSDL-from-PHP-classes-code.html#download
+http://webscripts.softpedia.com/script/PHP-Clases/PHP-WSDL-Generator-12037.html
+http://getabest.com/php-wsdl-generator-download-new-225701.html
+
+364 -----------------------------------------------------------------------
+SHOW: zblogapp/html/soapserver.php and zblogapp/html/soapclient.php
+
+369 -----------------------------------------------------------------------
+REF: http://talks.php.net/show/acc_php/26
+
+9-41 -----------------------------------------------------------------------
+REF: http://talks.php.net/show/acc_php/17
+REF: http://us2.php.net/manual/en/book.apc.php
+Also: see Zend Optimizer in the Zend Server - Server Setup panel
+
+Data Cache: available in Zend Server / CE
+http://files.zend.com/help/Zend-Server/zend_data_cache_-_php_api.htm
+
+9-42 -----------------------------------------------------------------------
+Opcode Caching: http://se.php.net/manual/en/book.apc.php
+
+371 -----------------------------------------------------------------------
+File Compression is available in Zend Platform (not free)
+
+372 -----------------------------------------------------------------------
+DEMO: Run - Profile URL - zlobapp in ZS
+
+373 -----------------------------------------------------------------------
+Example of an insecure website:
+
+385 -----------------------------------------------------------------------
+FINAL PROJECT: develop a search controller
+
+
+
+Q & A ---------------------------------------------------------------------
+
+Q: What is late static binding?
+A: REF: http://php.net/manual/en/language.oop5.late-static-bindings.php
+   REF: http://www.brandonsavage.net/a-lesson-in-static-methods-and-late-static-binding/
+   Gets around the limitations of self:: which is determined at compile time.
+   The problem: when a child extends a parent, you get the self:: of the parent not the child.
+   PHP 5.3 introduces a new use of "static".  You can use static:: in place of self, and it's
+   value is determined at runtime, thus "late static".
+
+Q: What is a typical time for fopen - mSec or uSec?
+A: uSec
+REF: http://www.phpbench.com/
+
+Q: What is \G used for in a regex pattern?
+A: \G performs identically to \A unless an offset is specified when issuing a preg_* command.
+
+Q: RE: rewriter variables: any particular reason for using two variables and not just setting the key as the requested name?
+A: See: output_add_rewrite_var.php
+   See also: rewritten ob_test.php -- old code ... rewrite variables written AFTER output (headers sent!!!) -- Sorry!!!
+
+Q: Did a quick test, pretty sure catch blocks do not catch exceptions thrown within their own code block.
+A: Correct.  Improper explanation of the db_transaction.php example: it's in a loop, so the loop continues after the catch.
+   It's not a function of PHP try / catch, rather, in this case, a function of how the program was constructed.  Sorry!!!
+
+Q: Where do you find session save handlers for a server?
+A: Look at the output from phpinfo().  Find the section entitled "Session".
+   Look for the param: Registered save handlers.  On the demo server: files, user & sqlite
+   NOTE: user = user defined?
+A: REF: http://www.php.net/manual/en/function.session-set-save-handler.php
+
+Q: In our session lab, we extended the stdClass and then assigned to non-existent variables stdClass()?
+REF: http://krisjordan.com/dynamic-properties-in-php-with-stdclass
+
+Q: Like Java, the new keyword allocates memory on the heap and returns a reference?
+A: See: http://www.php.net/manual/en/features.gc.refcounting-basics.php
+   Also: http://www.php.net/manual/en/internals2.php (A Hacker's Guide to the Zend Engine)
+
+Q: How does eTag cache affect SEO?
+A: You can also assume you get the benefit for SEO, as search engines supporting Etag, will effectively be able to skip pages from downloading/reanalyzing and index your pages more quickly.
+REF: http://lucato.it/Smartycode_Http_Conditional
+A: Since Google’s Caffeine update, their algorithm has placed a greater importance on page load speed. A website which loads faster has always had a number of benefits for users and site owners, the most basic reason being that readers are more likely to stay on a site which loads quickly from page to page...  This article then goes on to state you should *remove* etag and last-modified headers ... but only for pages with static content.
+REF: http://www.switchedonmedia.com.au/category/seo/
+
+Q: References to comparisons between frameworks?
+A: http://www.phpframeworks.com/news/p/24081/2011-top-10-php-frameworks-statistics-by-phpframeworks-com
+A: http://en.wikipedia.org/wiki/Comparison_of_Web_application_frameworks
+
+Q: What is the syntax for setting php.ini params in an .htaccess file?
+A: Used only with PHP_INI_ALL and PHP_INI_PERDIR type directives:
+php_value <php.ini param> <value>
+php_flag <php.ini param> <on|off>
+REF: http://php.net/manual/en/configuration.changes.php
+
+Q: Coding standards for PHP?
+A: http://pear.php.net/manual/en/standards.php
+
+Q: How deep is object cloning?
+A: When an object is cloned, PHP 5 will perform a shallow copy of all of the object's properties. Any properties that are references to other variables, will remain references. REF: http://us.php.net/clone
+
+Q: So once you have all these namespaces setup - is there a way to say...  "Ok, show me everything in namespace XYZ"...  and just see that code all in one spot?
+A: No.  But please note that nested namespaces are not allowed.
+   Also, for classes, you can use class_exists() to see if a class has been defined.
+   REF: http://uk3.php.net/manual/en/language.namespaces.php
+
+Q: One more question about arrays, is it possible to RESTRICT the array size ?
+A: There are no php.ini params which affect the array size.  The only pertinent factor is memory.
+   See discussion: http://stackoverflow.com/questions/5925885/php-array-size-limit
+
+Q: If you are using cURL is it necessary to have fopen parameter TRUE ?
+A: No.  See http://uk.php.net/manual/en/curl.configuration.php
+   See also http://uk.php.net/manual/en/book.curl.php
+
+Q: Where can I find info on PHP and thread safety?
+A: First of all, have a look at thread safety documentation for Apache 2.2:
+   REF: http://httpd.apache.org/docs/2.2/developer/thread_safety.html
+   Example readout for PHP 5.3:
+   zed@zed:/usr/lib/apache2/modules$ ldd libphp5.so
+	linux-gate.so.1 =>  (0xb7709000)
+	libcrypt.so.1 => /lib/i386-linux-gnu/libcrypt.so.1 (0xb7049000)
+	libresolv.so.2 => /lib/i386-linux-gnu/libresolv.so.2 (0xb7031000)
+	libncurses.so.5 => /lib/libncurses.so.5 (0xb700f000)
+	librt.so.1 => /lib/i386-linux-gnu/librt.so.1 (0xb7006000)
+	libm.so.6 => /lib/i386-linux-gnu/libm.so.6 (0xb6fdc000)
+	libdl.so.2 => /lib/i386-linux-gnu/libdl.so.2 (0xb6fd7000)
+	libnsl.so.1 => /lib/i386-linux-gnu/libnsl.so.1 (0xb6fbd000)
+	libc.so.6 => /lib/i386-linux-gnu/libc.so.6 (0xb6e3f000)
+	libtinfo.so.5 => /lib/libtinfo.so.5 (0xb6e20000)
+	libpthread.so.0 => /lib/i386-linux-gnu/libpthread.so.0 (0xb6e05000)
+	/lib/ld-linux.so.2 (0xb770a000)
+    Concerns over Apache2 with a threaded MPM (multi-processing module) in production environment:
+    REF: http://php.net/manual/en/faq.installation.php#faq.installation.apache2
+    See: "Why shouldn't I use Apache2 with a threaded MPM in a production environment?"
+    Recommendation: We do not recommend using a threaded MPM in production with Apache 2. Use the prefork MPM:
+    REF: http://php.net/manual/en/install.unix.apache2.php
+    REF: http://httpd.apache.org/docs/2.2/mpm.html
+    REF: http://httpd.apache.org/docs/2.2/mod/prefork.html
+    For Windows there are thread-safe and non-thread-safe builds.  The non-thread-safe build is recommended for IIS:
+    REF: http://php.net/manual/en/install.windows.iis7.php (see note in section "Configuring IIS to process PHP requests")
+    Basic memory management discussion:
+    REF: http://php.net/manual/en/internals2.memory.management.php
+    More info on PHP internals: "A Hacker's Guide to the Zend Engine"
+    REF: http://php.net/manual/en/internals2.php
+
+Q: PHP allows callback, like in ob_start.  How would we have a member function as a callback function??
+   function callback($buffer){    return str_replace("apples", "oranges", $buffer);}ob_start("callback");
+A: Create a static method to be used in the callback.  See ob_start_with_class_static_method_callback.php
+
+Q: How do I debug my phpcloud application using Zend Studio?
+A: Set up the SSH configuration between the cloud and Zend Studio
+   REF: https://my.phpcloud.com/help/debugging-overview
+   Review this tutorial on debugging:
+   REF: http://www.developertutorials.com/tutorials/php/php-debugging-with-zend-studio-8-02-01-938/
+
+Q: Is there a limit with size on the phpcloud ??
+A: from Erez Heilweil to All Participants: container size is 500mb
+
+Q: PDO::FETCH_INTO and PDO::FETCH_CLASS examples?
+A: see on code archive db_pdo_fetch_into.php and db_pdo_fetch_class.php
+
+Q: How can I scan a directory using an iterator
+A: see oop_spl_recursive_directory_iterator.php
+
+Q: If I use a : instead of the PATH_SEPARATOR constant will it work in Windows?
+Actually what I meant was , can I use : for path and will it auto convert on Windows?
+A: You can use '/' and Windows will properly interpret the directory path.
+   BUT ... you *cannot* use ':' as the path separator!!!
+   OUTPUT:
+Absolute Path:
+test.php
+.;c:\PHP\includes:/Users/ted/public_html/includes
+
+PHP Warning:  include(test_path.php): failed to open stream: No such file or directory in C:\Users\ted\public_html\include_test.php on line 12
+
+Warning: include(test_path.php): failed to open stream: No such file or directory in C:\Users\ted\public_html\include_test.php on line 12
+PHP Warning:  include(): Failed opening 'test_path.php' for inclusion (include_path='.;c:\PHP\includes:/Users/ted/public_html/includes') in C:\Users\ted\public_html\include_test.php on line 12
+
+Warning: include(): Failed opening 'test_path.php' for inclusion (include_path='.;c:\PHP\includes:/Users/ted/public_html/includes') in C:\Users\te\public_html\include_test.php on line 12
+Uses revised include_path:
+test.php
+.;c:\PHP\includes:/Users/ted/public_html/includes;/Users/ted/public_html/includes
+TEST 1
+TEST 2
+C:\Users\ted\public_html\includes
+.;c:\PHP\includes:/Users/ted/public_html/includes;/Users/ted/public_html/includes
+TEST INCLUDES 1
+TEST INCLUDES 2
+
+Q: Is there an equivalent for PERL qw()?
+A: In PERL: my @names = ('Kernighan', 'Ritchie', 'Pike');
+   In PERL: my @names = qw(Kernighan Ritchie Pike);
+   In PHP 5.3: $names = ('Kernighan', 'Ritchie', 'Pike');
+   In PHP 5.4: $names = ['Kernighan', 'Ritchie', 'Pike'];
+A: See Also: list(), compact(), extract(), implode() and explode()
+
+Q: Compare zend with other framework?
+A: There are a number of comparison pages.
+   For example: http://en.wikipedia.org/wiki/Comparison_of_web_application_frameworks#PHP
+
+Q: Is there a coding standard book such as Perl Best Practices by Damian Conway?
+A: http://pear.php.net/manual/en/standards.php
+A: see also: http://pear.php.net/package/PHP_CodeSniffer
+
+
+-----------------------------------------------------------------------------------------------
+
+LAB MODIFICATIONS FOR PHP FOR EXPERIENCED PROGRAMMERS COURSE USING PHPCLOUD:
+
+M3Ex3:
+
+NOTES:		Additional Instructions:
+		You can place your code in the "exercises" project, public folder
+
+M3Ex4:
+NOTES:		You need implement zblogapp.work/lib/zblog/log/logger.php::logEntry()
+
+     /**
+      * L2Ex1: Writing to files
+      * logs an entry view to the ENTRY_LOG file
+      *
+      * @param int entryId
+      * @param string $entryTitle
+      */
+     public function logEntry($entryId, $entryTitle)
+     {
+        // define a path to the file
+        // fopen using the filename + path; mode = wt
+        // exclusively lock the file
+        // fwrite this info: entryId + entryTitle + date + IP
+        // fclose
+     }
+
+
+
+M3Ex6:
+
+NOTES:		Solution (goes into zblogappwork/public):
+
+<?php
+function dirscan($path) {
+	static $output = '';
+	$count = 1;
+	$list = glob($path . '/*');
+	foreach ($list as $item) {
+		if (is_dir($item)) {
+			$output .= sprintf("<tr bgcolor='yellow'><td>%03d</td><td colspan=2>%s</td></tr>", $count++, $item);
+			dirscan($item);
+		} else {
+			$size 	= filesize($item);
+			$lines 	= count(file($item));
+			$output .= sprintf("<tr><td>%20s</td><td>%06d</td><td>%04d</td></tr>", basename($item), $size, $lines);
+		}
+	}
+	return $output;
+}
+// note: shows base directory from project zblogappwork
+$path	= '../application/views/scripts';
+$result = dirscan($path);
+echo "Base Directory: $path<br />\n";
+echo '<table>';
+echo $result;
+echo "</table>\n";
+
+
+M3Ex8:
+
+NOTES:		Additional Instructions:
+		Preparatory Steps for the Streams Exercise:
+		(from Zend Studio)
+
+
+M4Ex2:
+
+NOTES: 		It is no longer possible to do this exercise as we do not have access to the Apache configuration on the cloud.
+Recommendation: Drop this exercise.
+Discussion:	This exercise takes way too much time and does not teach PHP concepts anyhow.
+		Many students have a web server or sysadmin team which does this work.
+
+
+M4Ex3:
+
+NOTES:		Insert this at the beginning the exercise before any of the Parts:
+
+		This exercise pertains to the zblogappwork project.
+
+		Part A - C:
+		no changes
+
+		Part D:
+		Remove all references to "workspace/"
+		Change references to "html" to "public"
+		Change references to "zblogapp.work" to "<container>.my.phpcloud.com/zblogappwork"
+
+		Part E:
+		Change references to "html" to "public"
+
+M6Ex1:
+
+NOTES:		Place the solution in exercises/public
+
+
+
+M6Ex2:
+
+NOTES:		No changes
+
+
+
+M6Ex3:
+
+NOTES:		Cannot "tail" the file as we have no command line access to the cloud container.
+		Replace bullet points 2 and 3 with the following:
+		Verify this by viewing the access log from the Zend Server console:
+		1. Login to the phpcloud container
+		2. Click on the "ACCESS ZEND SERVER" button (upper right)
+		3. Under "Monitor" select "Logs" (far right)
+		4. In the "View Log" drop down box select "Server Access Log"
+
+
+M6Ex9:
+
+NOTES:		Need to configure the container to deliver outgoing email messages as follows:
+		1. Login to the phpcloud container
+		2. Select the container you use for class
+		3. Select "Configuration" - "Outgoing Email Settings"
+		4. Configure the appropriate SMTP parameters
+		5. Enter information in "Test Email Target" and click "Send a Test Email"
+
+M8Ex4:
+
+NOTES:		Replace the instructions as follows:
+
+		Part A:
+		1.
+		A. Login to your container
+		B. Select "Management" and then "Database Management"
+		C. Select "Manage your database using phpMyAdmin"
+		D. Click on your container database (left column)
+		E. Click on "Import"
+		F. Browse to the file "blogdb-mysql.sql"
+		   (look in the "data" folder)
+		G. Click "Go"
+		H. You should now see a success message and three tables:
+		   blogcomments, blogentries, and blogusers
+
+		2.
+		A. Click on "SQL"
+		B. Into the text window paste the commands to create a stored procedure:
+DELIMITER //
+CREATE PROCEDURE getEntry (IN entryId INTEGER)
+BEGIN
+SELECT a.entry_id AS entry_id, a.title AS title, a.content
+AS content, a.modified AS modified, count(b.comments_id) as
+comments_count
+FROM blogentries as a
+LEFT JOIN blogcomments as b
+ON a.entry_id = b.entry_id
+AND b.approval_status = 1
+WHERE a.entry_id = entryId
+GROUP BY a.entry_id;
+END//
+DELIMITER ;
+		C. You should see a success message.
+		   If not troubleshoot the problem.
+		3. Change the following line from:
+		   $db= 'mysql:dbname=zblog;host=localhost';
+		   to this:
+		   // replace 'your_container' with the name of your container
+		   $db= 'mysql:dbname=your_container;host=your_container-db.my.phpcloud.com;port:3306';
+
+
+M9Ex3:
+
+NOTES:		Solution:
+		Replace 2nd bullet point with the following:
+
+		First open the Zend Server GUI by clicking on "Access Zend Server" from the control panel of your container
+
+		Remove the last bullet point which starts with "Optionally open the php.ini file ..."
+
+CODEBREAKS ----------------------------------------------------------------
+
+
+CODEBREAK:
+0.    From Zend Studio inside the VM
+    A.    Go to the PHP explorer at the left
+    B.    Select the zblogapp
+    C.    Select Project - Open Project
+1.    Add code to application/controllers/AdminController.php
+2.    Create a new function "dirlistAction()"
+3.    Copy lines 21 - 24 of indexAction()
+4.    Change 'pageAction' from 'adminmain' to 'dirlist'
+5.    Add code to produce a directory listing + file info as per directions in exercise
+    Store output in the form of an HTML table into a variable $output
+6.    Assign to the view:
+    $this->view->setVar('output',$output);
+7.    Copy application/views/scripts/admin/index.phtml to
+    application/views/scripts/admin/dirlistphtml
+8.    Modify application/views/helpers/AdminPage.php
+    A.    Copy line 49 and modify to test for $pageAction == 'dirlist'
+    B.    Obtain value of $output using $this->view->getVar('output');
+    C.    Echo this value
+9.    Modify application/views/helpers/Adminmenu.php
+    A.    Add a reference to /admin/dirlist
+10.    From browser, run zblogapp
+    A.    See notes on how to get it working properly first!
+    B.    Login as user 'administrator' using password 'password'
+    C.    Test your modification
+
+
+CODEBREAK SOLUTIONS: -------------------------------------------------------------------------
+
+LAB SETUP:
+
+From Zend Studio inside the VM:
+1. Select the "exercises" project
+2. Project - Open Project
+3. File - New - PHP File
+4. Give it a name i.e. solution_to_m3ex6.php
+5. OK
+6. Select each project (blue folder) one at a time and do this:
+   Project - Open Project
+
+
+M3EX4: See lab notes in participants exercise guide
+
+// M3Ex4
+Goes into zblogapp.work/lib/zblog/log/Logger.php
+     /**
+      * L2Ex1: Writing to files
+      * logs an entry view to the ENTRY_LOG file
+      *
+      * @param int entryId
+      * @param string $entryTitle
+      */
+     public function logEntry($entryId, $entryTitle)
+     {
+        // /workspace/zblogapp.work/data/logs/entry.log
+         $entryLog = LOG_PATH . ENTRY_LOG;
+        $fh = fopen($entryLog, 'a');
+        if ($fh) {
+            fprintf($fh, "Date: %s | ID: %s | Title: %s\n", date('Ymd'), $entryId, $entryTitle);
+        } else {
+            die('Error opening entry log file!');
+        }
+        fclose($fh);
+     }
+
+M3EX5: skip
+M3EX6:
+
+
+
+// M6Ex1
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Readfile Example</title>
+</head>
+<body>
+<form action="?param=TEST" method="post">
+<input type="text" name="abc" />
+<input type="submit" />
+</form>
+<p>
+<?php phpinfo(INFO_VARIABLES); ?>
+</p>
+</body>
+</html>
+
+// M3Ex6
+<?php
+class scanPath {
+    public $output = '';
+    private $count = 1;
+    public function dirscan($path) {
+        $list = glob($path . '/*');
+        foreach ($list as $item) {
+            if (is_dir($item)) {
+                $this->output .= sprintf("<tr bgcolor='yellow'><td>%03d</td><td colspan=2>%s</td></tr>",
+                                         $this->count++, $item);
+                $this->dirscan($item);
+            } else {
+                $size = filesize($item);
+                $lines = count(file($item));
+                $this->output .= sprintf("<tr><td>%20s</td><td>%06d</td><td>%04d</td></tr>",
+                                    basename($item), $size, $lines);
+            }
+        }
+    }
+}
+$a = new scanPath();
+$a->dirscan('/applications/zblogappwork');
+?>
+<html>
+<body>
+<table>
+<tr><th>Filename/Dir</th><th>Size</th><th>Lines</th></tr>
+<?php echo $a->output; ?>
+</table>
+</body>
+</html>
+
+// M5Ex1
+<?php
+$list = array('www.bbc.co.uk',
+			  'news.bbc.co.uk',
+			  'www.bbc.co.uk/worldservice',
+			  'badurl',
+			  'badurl/test');
+$pattern = '/^(\w{2,4}\.)+\w{2,4}(\/\w+)?$/i';
+echo '<hr />';
+echo 'Pattern: ' . htmlentities($pattern) . '<br />' . PHP_EOL;
+echo '<hr />';
+echo '<table>';
+foreach ($list as $url) {
+	echo '<tr>';
+	echo '<th>' . $url . '</th>';
+	echo '<td>';
+	echo (preg_match($pattern, $url) > 0) ? 'Matches' : 'Does not match';
+	echo '</td>';
+	echo '</tr>' . PHP_EOL;
+}
+echo '</table>' . PHP_EOL;
+
+// M5Ex2
+<?php
+$contents = file_get_contents('myfile.txt');
+echo 'Before: <hr />' . $contents . '<hr />';
+echo 'After: <hr />' .preg_replace(array('/c\+\+/i', '/java/i'), 'PHP', $contents);
+
+// M6EX3 -- Browser Cache Lab Solution:
+
+// POSSIBLE SOLUTION
+// Goes into ArticleController.php after line 89:
+             // browser cache manipulation
+             $inbound_etag = (isset($_SERVER['HTTP_IF_NONE_MATCH'])) ? $_SERVER['HTTP_IF_NONE_MATCH'] : '';
+             if ($inbound_etag == $entryId) {
+                 header('304 Not Modified', TRUE, 304);
+                 exit;
+             } else {
+                header('Expires: ' . gmdate("D, d M Y H:i:s", $entry->modified+3600) . " GMT");
+                header("Pragma: cache");
+                header("Cache-Control: public, must-revalidate, max-age=0");
+                header('ETag: ' . $entryId);
+             }
+
+// M6EX4 -- Cookie Lab Solution:
+
+// POSSIBLE SOLUTION
+// goes in IndexController.php
+    public function togglepreviewAction()
+    {
+        // does the cookie exist?
+        if (isset($_COOKIE['hidePreview'])) {
+            // unset cookie via expire time in past
+            setcookie('hidePreview', 1, time()-300, '/');
+        } else {
+            // set cookie
+            setcookie('hidePreview', 1, time()+300, '/');
+        }
+        // redirect and exit
+        //
+        header('Location: http://' . $_SERVER['HTTP_HOST'] . '/');
+        exit;
+    }
+
+// CLOUD ONLY:
+header('Location: ' . URL_HOME);
+// goes into config/config.inc.php:
+define('CLOUD_APP_NAME', '/zblogappwork');
+define( 'URL_HOME', 'http://' . $_SERVER['HTTP_HOST'] . CLOUD_APP_NAME );
+
+// M6EX6 -- Session Lab Solution:
+
+// POSSIBLE SOLUTION
+// Goes into ArticleController.php after line 89:
+   // store article info in session
+   $_SESSION['last_read'] = array('id' => $entry->entry_id, 'title' => $entry->title);
+
+// Goes into views/helpers/Columnleft.php (towards the end):
+
+// retrieve article from session:
+if (isset($_SESSION['last_read'])) {
+    // create a link so the user can view the article
+    $link = '<a href="' . URL_HOME . '/article/view/id/'
+          . $_SESSION['last_read']['id'] . '">'
+          . $_SESSION['last_read']['title']
+          . '</a>';
+       $lastReadHtml = '<div id="blog-lastread">' . PHP_EOL
+                     . '<h3>Last Read</h3>' . $link . '</div>';
+} else {
+    $lastReadHtml = '';
+}
+
+$columnLeftHtml = $searchBoxHtml
+                . $recentEntriesHtml
+                . $rssBoxHtml
+                . $lastReadHtml;
+
+return $columnLeftHtml;
+
+
+M7Ex2: Static Storage Class
+
+// Possible Solution
+
+// create new class in models/Storage.php:
+<?php
+namespace models;
+
+class Storage {
+	protected static $_storage = array();
+	public static function set($name, $value) {
+		self::$_storage[$name] = $value;
+	}
+	public static function get($name) {
+		$val = NULL;
+		if (isset(self::$_storage[$name])) {
+			$val = self::$_storage[$name];
+		}
+		return $val;
+	}
+}
+
+// load class and set 'version' in index.php:
+require_once $path . 'application/models/Storage.php';
+\models\Storage::set('version', '1.0.0');
+
+// retrieve 'version' from storage in views/helpers/Header.php:
+
+		// retrieve version from static storage
+		$version = \models\Storage::get('version');
+
+		$headerHtml = <<<EOQ
+<div id="header">
+
+	<a href="$urlHome">Home</a> | Version: $version | $welcome
+    <h1>$applicationName</h1>
+</div>
+EOQ;
+
+M8Ex3: implement the getAllComments function
+// POSSIBLE SOLUTION
+// Goes in models/Comments.php
+    /*
+     * M8Ex3: implement the getAllComments function
+     */
+    public static function getAllComments()
+    {
+        $sql = <<<EOQ
+SELECT *
+FROM blogcomments
+ORDER BY modified DESC
+EOQ;
+        try {
+            $stmt = DatabaseAdapter::getAdapter()->prepare( $sql );
+            if ($stmt->execute(array())) {
+                return $stmt->fetchAll(\PDO::FETCH_OBJ);
+            }
+        } catch (\PDOException $e) {
+            Logger::getInstance()->writeLog( $e->getMessage(), 'ERR' );
+        }
+        return null;
+
+    }
+
+
+#187 CODEBREAK:
+1.    Use phpinfo(INFO_VARIABLES) to show data being sent
+
+#126 CODEBREAK:
+1. Test access to this directory: http://zblogapp.work/admin/
+    You should get a prompt for username and password.
+ 
+    	Username = administrator
+   	Password = password
+
+2. Now you can write the code for the exercise.
+
+&&&Instructor
+Could make this homework, if running late on time…
+
+// Start code should already be there
+
+
+$header = 'Authorization: Basic '.base64_encode('administrator:password')."\r\n";
+$header .= 'Cookie: '.session_name().'='.md5(microtime())."\r\n";
+
+$context = stream_context_create(
+	array (
+		'http' =>
+			array(
+				'header' => $header
+				)
+	)
+);
+
+$fh = fopen('http://<IP ADDR>/admin/?useHttpAuth=1', 'r', null, $context);
+stream_filter_append($fh, "string.toupper", STREAM_FILTER_READ);
+$content = '';
+while (!feof($fh)) {
+	$content .= fread($fh, 1024);
+}
+fclose($fh);
+echo strip_tags($content);
+
+WEDNESDAY ----------------------------------------------------------------------------------------
+
+CODEBREAK: Convert the ZBlog app to MySQL
+1.    Change the name of /workspace/zblogapp/data/ blogdb.sqlite
+    to something else
+2.    Verify that the zblog app is broken
+3.    Download the SQL file into the /workspace directory
+      wget http://opensource.unlikelysource.com/blogdb-mysql.sql
+3.    Import blogdb-mysql.sql into MySQL using phpmyadmin
+4.    Modify lib/zblog/data/Adapter:
+$db = "mysql:host=localhost;dbname=blogdb";
+self::$dbAdapter = new Adapter(new \PDO($db,'blogdb','password'));
+
+How to get phpmyadmin working in the VM:
+From a terminal window:
+1.    Test mysql as follows:
+    /usr/local/mysql/bin/mysql -u root
+2.    sudo apt-get install phpmyadmin
+    select 'apache2' when prompted
+3.    sudo mkdir /var/run/mysqld
+4.    sudo ln -s /tmp/mysql.sock /var/run/mysqld/mysqld.sock
+5.    sudo ln -s /usr/share/phpmyadmin /workspace/phpmyadmin
+6.    Test in browser: http://localhost/phpmyadmin
+    login as 'root' with no password
+
+TUESDAY ----------------------------------------------------------------------------------------
+
+WAIT UNITL THE END of the OOP SECTION FOR THIS!!!
+CODEBREAK:
+1.    Create a "registry" mechanism (i.e. a place to temporarily store values )
+    which works like $GLOBALS
+2.    Create the class in a separate file located under lib/zblog/util
+        which implements the interface Store (see below)
+3.    Name the PHP file the same as the name of the class
+4.    To include the file, place this statement at the top of the controller after "namespace":
+    use \zblog\util\ZZZ as ZZZ where "ZZZ" is the name of your class and php file
+5.    To use the mechanism do something like this:
+    ZZZ::set('xyz')  and then later ZZZ::get('xyz')
+6.    Make sure that if the object is accidentally instantiated an exception is thrown
+7.    Use your newly created mechanism to store a value and retrieve it several times
+8.    HINT: look at lib/util/Validators.php and then see how it is used in ArticleController.php
+
+interface Store {
+    public function get($name);
+    public function set($name,$value);
+}
+
+MONDAY ----------------------------------------------------------------------------------------
+
+CODEBREAK m6ex3: Browser Caching
+
+File to modify: zblogappwork/application/controllers/ArticleController.php
+HEADER CODE:
+header('Expires: '.gmdate("D, d M Y H:i:s", $entry->modified+31536000) . " GMT");
+//header('Last-Modified: '.gmdate("D, d M Y H:i:s", $entry->modified) . " GMT");
+header("Pragma: cache");
+header("Cache-Control: public, must-revalidate, max-age=0");
+
+ADD:
+1.    Create your own eTag
+2.    Send it to the browser
+3.    Check "HTTP_IF_NONE_MATCH"
+4.    If the same as your eTag, send code 304 and exit
+
+NOTE:
+Cannot "tail" the file as we have no command line access to the cloud container.
+Verify the status codes by viewing the access log from the Zend Server console:
+1. Login to the phpcloud container
+2. Click on the "ACCESS ZEND SERVER" button (upper right)
+3. Under "Monitor" select "Logs" (far right)
+4. In the "View Log" drop down box select "Server Access Log"
+
+CODEBREAK m6ex4: Cookies
+
+1.    Look Over These Files:
+    zblogappwork/application/views/scripts/index/index.phtml
+    zblogappwork/application/views/helpers/Mainpage.php
+
+2.    Notice how $_COOKIE is referenced
+
+3.    Set a cookie in zblogappwork/application/controllers/IndexController.php:
+    Add a public function "togglepreviewAction()" which sets or unsets the cookie
+    Make sure to exit!
+
+Hints:
+--> Don't specify the domain parameter in the setcookie command:
+      it's looking for xxx.yyy and not 'localhost'
+--> in the togglepreviewAction make sure the sense of the logic is correct!
+--> Once the cookie is set (or unset) you'll need to refresh to see the changes
+    use header('Location: /zblogappwork') and then exit
+
+CODEBREAK M6ex6: Session Lab
+
+zblogappwork/application/controllers/ArticleController.php
+--> need to store $entry (see line 89) into $_SESSION
+
+zblogappwork/application/views/helpers/ColumnLeft.php
+--> somewhere before line 53, read $entry from $_SESSION and display
+--> copy one of the $xxxHtml blocks and modify to display the article last read
+--> set up an <a href="">xxx</a> tag
+--> "read" an article and notice the syntax you need
+--> use $article->entry_id to get the ID# for the article
+--> use $article->title to get the title [optional]
+
+
+CODEBREAK M7ex2: Static Storage
+
+Create a new storage class in application/models
+-- be sure to indicate "namespace models"
+-- define a "get" method which retrieves the value
+-- define a "set" method which sets the value
+-- define a property variable which can be used for storage within the class
+Set a value in the index.php file
+-- You will need to "require" your new class
+Retrieve the value in views/helpers/Header.php
+-- When you retrieve it, no need to require
+-- Use \models\your_class::get(xxx,xxx) namespace syntax
+
+
+REGEX LAB:
+
+Copy myfile.txt from zblogappwork/public to /workspace/exercises
+
+
+CODEBREAK M8ex3: database connections
+
+Additional Instructions:
+
+1.    Open application/models/Comments.php
+2.    Look for method "getAllComments()"
+3.    Use code from "getComments()" (above) as an example to modify
+4.    To test: login as "administrator" with a password of "password"
+5.    Click on "Manage Comments"
+       If your implementation works, you'll see all comments listed
+
+FINAL PROJECT: Code the Search Controller
+
+CONTROLLER:
+1.	controllers/SearchController.php - indexAction() - TODO:
+	check if $queries are not empty; if not $entries = Blogs::searchEntries()
+MODEL:
+2.	models/Blogs.php -- searchEntries() - TODO:
+	try / catch block
+	use a prepared statement
+	return a fetchAll PDO::FETCH_OBJ
+	if failure log the results
+VIEW:
+3.	views/scripts/search/index.phtml -- TODO:
+	render the results assigned from the controller
+	use "$this->loadHelper" to load Searchresults.php
+4.	views/helpers/Searchresults.php -- TODO:
+	check to see if you've got results
+	if so, iterate through the result set producing HTML
+	if not produce an appropriate
+
+<?php
+/*
+ * M3Ex6 -- goes into Exercises project in VM
+ * Use the glob command to produce an array of files in a directory
+ * Loop through list and do the following:
+ * -- check to see if it's a file
+ * -- if true : output the appropriate info
+ * -------------- file name comes from glob
+ * -------------- filesize function
+ * -------------- number of lines: fopen and count # fgets  calls
+ * -- else : check to see if it's a directory
+ * ---- if true: use recursion to call the same function
+ */
+
+Options +Indexes -> .htaccess
+Not seeing files: Windows 7 + IE 8
+Everything OK with Windows Vista + IE 9
+
+NOTE: for troubleshooting tips, see document on synching between ZS9 and cloud
+
+
+
+

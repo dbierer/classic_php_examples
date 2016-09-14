@@ -1,0 +1,9 @@
+@CHARSET "UTF-8";
+.color {
+	color: red;
+	font-weight: bold;
+}
+ul li {
+	list-style: inline;
+	color: red;
+}

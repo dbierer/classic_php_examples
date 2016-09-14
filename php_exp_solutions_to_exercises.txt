@@ -1,0 +1,342 @@
+// NOTE: solutions are in reverse order of exercises
+
+M7Ex2: static storage
+
+goes into exercises
+<?php
+// storage class class_name {
+class Storage {
+    protected static $_whatever = array();
+    public static function setProperty($name, $value) {
+        self::$_whatever[$name] = $value;
+        return TRUE;
+    }
+    public static function getProperty($name) {
+        return self::$_whatever[$name];
+    }
+}
+
+Storage::setProperty('abc', 'xyz');
+/*
+ * Some Code
+ * ...
+ * etc.
+ */
+echo Storage::getProperty('abc');
+M6Ex3, 4 & 6: browser cache, cookies, session
+
+goes into zblogappwork project
+<?php
+// m6ex3: browser cache lab
+// Goes into ArticleController.php after line 89:
+// browser cache manipulation
+$inbound_etag = (isset($_SERVER['HTTP_IF_NONE_MATCH'])) ? $_SERVER['HTTP_IF_NONE_MATCH'] : '';
+if ($inbound_etag == $entryId) {
+    header('304 Not Modified', TRUE, 304);
+    exit;
+} else {
+    header('Expires: ' . gmdate("D, d M Y H:i:s", $entry->modified+3600) . " GMT");
+    header("Pragma: cache");
+    header("Cache-Control: public, must-revalidate, max-age=0");
+    header('ETag: ' . $entryId);
+}
+
+// m6ex4: cookie lab
+// goes in IndexController.php
+public function togglepreviewAction()
+{
+    /* -- CODEBREAK m6ex4: Cookies -- */
+    if (isset($_COOKIE['hidePreview'])) {
+        // unset the cookie
+        setcookie('hidePreview', 0, time()-3600, '/');
+    } else {
+        // set the cookie
+        setcookie('hidePreview', 1, time()+3600, '/');
+    }
+    // redirect back to <container>.my.phpcloud.com/zblogappwork
+    header("Location: " . URL_HOME);
+    exit;
+}
+
+// m6ex5: session lab
+// goes in ArticleController.php around line 89
+// store in session
+$_SESSION['article'] = $entry;
+
+// goes in application/views/helpers/ColumnLeft.php around line 52
+// retrieve the article (if set)
+$entry = (isset($_SESSION['article'])) ? $_SESSION['article'] : '';
+// add display info to a variable
+if ($entry) {
+    $lastReadDisplay = '<a href="' . $urlHome . '/article/view/id/' . $entry->entry_id . '">' . htmlentities($entry->title, ENT_NOQUOTES) . '</a>';
+    // add that variable to $columnLeftHtml
+    $lastReadHtml = <<<EOQ
+<div id="blog-recentposts">
+    <h3>Last Read</h3>
+    $lastReadDisplay
+</div>
+EOQ;
+} else {
+    $lastReadHtml = '';
+}
+
+$columnLeftHtml = $searchBoxHtml . $recentEntriesHtml . $rssBoxHtml . $lastReadHtml;
+
+M6Ex1: GET and POST
+
+goes into Exercises project
+<?php 
+$email = (isset($_POST['email'])) ? strip_tags($_POST['email']) : '';
+$pattern = '/^[A-Za-z0-9][A-Za-z0-9-._]*@([\w-_]+\.)+\w{2,6}$/';
+if ($email) {
+    if (preg_match($pattern, $email)) {
+        $result = 'VALID';    
+    } else {
+        $result = 'NOT VALID';
+    }
+} else {
+    $result = 'NOT SET';
+}
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GET / POST Lab</title>
+</head>
+<body>
+<form method="post" action="?param=FORM1">
+Enter Email Address:
+<br />
+<input type="text" name="email" value="<?php echo $email; ?>"/>
+<br />
+ABC:
+<br />
+<input type="text" name="abc" />
+<input type="submit" />
+<input type="hidden" name="form" value="1" />
+</form>
+<form method="post" action="?param=FORM2">
+Enter Email Address:
+<br />
+<input type="text" name="email" value="<?php echo $email; ?>"/>
+<br />
+ABC:
+<br />
+<input type="text" name="abc" />
+<input type="submit" />
+<input type="hidden" name="form" value="2" />
+</form>
+<br />
+Email Address: 
+<?php echo $result; ?>
+<p>
+<?php phpinfo(INFO_VARIABLES); ?>
+</p>
+</body>
+</html>
+M5Ex2: replace from file
+
+goes into Exercises project
+<?php
+$contents = file_get_contents('myfile.txt');
+echo 'Before: <hr />' . $contents . '<hr />';
+echo 'After: <hr />' .preg_replace(array('/c\+\+/i', '/java/i'), 'PHP', $contents);
+M5Ex1: match a URL
+
+goes into Exercises project
+<?php
+$list = array('www.bbc.co.uk',
+        'news.bbc.co.uk',
+        'www.bbc.co.uk/worldservice',
+        'badurl',
+        'badurl/test');
+$pattern = '/^(\w{2,4}\.)+\w{2,4}(\/\w+)?$/i';
+echo '<hr />';
+echo 'Pattern: ' . htmlentities($pattern) . '<br />' . PHP_EOL;
+echo '<hr />';
+echo '<table>';
+foreach ($list as $url) {
+    echo '<tr>';
+    echo '<th>' . $url . '</th>';
+    echo '<td>';
+    echo (preg_match($pattern, $url) > 0) ? 'Matches' : 'Does not match';
+    echo '</td>';
+    echo '</tr>' . PHP_EOL;
+}
+echo '</table>' . PHP_EOL;
+M3Ex6: listing files in a directory
+
+goes into Exercises project
+<?php
+// M3Ex6
+class scanPath {
+    public $output = '';
+    private $count = 1;
+    public function dirscan($path) {
+        $list = glob($path . '/*');
+        foreach ($list as $item) {
+            if (is_dir($item)) {
+                $this->output .= sprintf("<tr bgcolor='yellow'><td>%03d</td><td colspan=2>%s</td></tr>", 
+                                         $this->count++, $item);
+                $this->dirscan($item);
+            } else {
+                $size = filesize($item);
+                $lines = count(file($item));
+                $this->output .= sprintf("<tr><td>%20s</td><td>%06d</td><td>%04d</td></tr>", 
+                                    basename($item), $size, $lines);
+            }
+        }
+    }
+}
+$a = new scanPath();
+$a->dirscan(realpath(__DIR__ . '/../../../'));    
+?>
+<html>
+<body>
+<a href="http://dougbierer.my.phpcloud.com/exercises/">BACK</a>
+<br />
+<table>
+<tr><th>Filename/Dir</th><th>Size</th><th>Lines</th></tr>
+<?php echo $a->output; ?>
+</table>
+</body>
+</html>
+M3Ex4: logging entries to a file
+
+goes into zblogappwork project
+to test: login as "administrator" password = "password"
+select "Manage" and then "logs"
+<?php
+
+// goes into zblogappwork/lib/zblog/log/Logger.php
+
+class Logger
+{
+    /**
+     * L2Ex1: Writing to files
+     * logs an entry view to the ENTRY_LOG file
+     *
+     * @param int entryId
+     * @param string $entryTitle
+     */
+    public function logEntry($entryId, $entryTitle)
+    {
+        // use predefined constants to build path to log file
+        $logFile = LOG_PATH . ENTRY_LOG;
+        // assign to a variable id + title + ip addr
+        $logStr  = sprintf("%6d : %30s : %16s : %s\n",
+                $entryId,
+                $entryTitle,
+                $_SERVER['REMOTE_ADDR'],
+                date('Y-M-d'));
+        // open or create the file using the f* family
+        $fh = fopen($logFile, 'a');
+        if ($fh) {
+            // write out a new line
+            fwrite($fh, $logStr);
+            // close the file
+            fclose($fh);
+        }
+    }
+    public static function viewLog()
+    {
+        $entryLog = LOG_PATH . ENTRY_LOG;
+        return implode('<br />', file($entryLog));
+    }
+}
+
+// goes into zblogappwork/application/views/helpers/Adminpage.php
+
+class View_Helper_Adminpage
+{
+    public function load()
+    {    
+        // Look for this:      } elseif ($pageAction == 'logs') {
+        // add these lines:
+             $pageHtml .= zblog\log\Logger::viewLog();
+             $pageHtml .= '</div>';
+             return $pageHtml;
+    }
+}
+
+// to test: login as "administrator" password = "password"
+//            click on "logs"
+M2Ex4: solutions
+
+goes into Exercises project
+<?php 
+// M2Ex4 -- arrays
+$array = array(
+    1 => range(1,4),        // range(1,4) = array(1, 2, 3, 4)
+    2 => array('a', 'b', 'c'),
+    3 => array(1, 2, 3, 4, 5, 6),
+    4 => range(1,5),
+    5 => array('d', 'e', 'f'),
+    6 => range(1,4),
+    7 => range(1,7)
+);
+/* output should look like this:
+ 1: 1, 2, 3, 4
+ 3: 1, 2, 3, 4, 5, 6
+ 5: d, e, f
+ etc.
+*/
+// sergei
+echo 'sergei <br />';
+foreach($array as $key=>$value){
+    if( $key%2 ){
+        $tmp_result = '';        $tmp_result .= $key. ':';                
+        foreach($value as $value_item){
+            $tmp_result .= " " . $value_item;
+        }                
+        echo $tmp_result.'<br/>';
+    }
+}
+// ivan
+echo '<br />ivan <br />';
+for ($i=0; $i<count($array); $i++) :    
+    if ($i %2 == 1) {
+        echo $i . ': ';                
+        echo implode(',', $array[$i]);                
+        echo '<br />';
+    }
+endfor;
+// andrew
+echo '<br />andrew<br />';
+for($i = 0; $i < count($array); $i++){
+    for($f = 0; $f < count($array); $i++)    {
+        if(is_integer($array[$i + 1][0]))        {
+            if($array[$i + 1][$f] % 2 === 0)            {
+                $out = $array[$i + 1][$f];                
+                echo "$out";
+            }
+        }
+    }    
+    echo "<br />\n";
+}
+
+echo '<br />john<br />';
+for($i = 1; $i <= count($array); $i++) {
+    if ($i % 2 == 1) {
+        echo "$i: " . implode(', ', $array[$i]) . "\n";
+    }
+}
+
+echo '<br />samuel<br />';
+for ($i = 0; $i <= 7; $i++){
+    if($i == 1 || $i == 3 || $i == 5 || $i == 7)    {
+        $b = count($array(i));        
+        for($k = 0; $k <= b; $k++)        {
+            echo $array[i][k];
+        }
+    }
+}
+
+echo '<br />bobby<br />';
+$intLoop = 0;
+for ($intLoop = 1;$intLoop<=(count($array));$intLoop+=2)    {
+    echo "$intLoop: " . implode(', ',$array[$intLoop]) . '<br>';
+}
+?>
+

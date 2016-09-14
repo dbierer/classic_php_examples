@@ -1,0 +1,26 @@
+<?php
+$username = 'dougbierer';
+$password = 'password';
+$key= trim(md5('phpExp'));
+$iv = 12345;
+$codedUsername = trim(mcrypt_encrypt(MCRYPT_BLOWFISH, $key, $username, MCRYPT_MODE_ECB, $iv));
+$codedPassword = trim(mcrypt_encrypt(MCRYPT_BLOWFISH, $key, $password, MCRYPT_MODE_ECB, $iv));
+$fh = fopen('mcrypt.txt', 'wb+');
+fputs($fh, $key);
+fputs($fh, '&&');
+fputs($fh, $iv);
+fputs($fh, '&&');
+fputs($fh, $codedUsername);
+fputs($fh, '&&');
+fputs($fh, $codedPassword);
+fclose($fh);
+echo 'Username: ' . htmlentities($codedUsername);
+echo PHP_EOL;
+$contents = file_get_contents('mcrypt.txt');
+list($key, $iv, $fileUsername, $filePassword) = explode('&&', $contents);
+//var_dump($contents);
+echo ($codedUsername == $fileUsername) ? 'Username File OK' : 'Username File Error';
+echo PHP_EOL;
+echo mcrypt_decrypt(MCRYPT_BLOWFISH, $key, $fileUsername, MCRYPT_MODE_ECB, $iv);
+echo PHP_EOL;
+echo mcrypt_decrypt(MCRYPT_BLOWFISH, $key, $filePassword, MCRYPT_MODE_ECB, $iv);

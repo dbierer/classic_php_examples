@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!-- Other files: multi_page_form.php, page2.phtml, page3.phtml -->
+<head>
+	<title>Multi Page Form</title>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+	<meta name="generator" content="Geany 0.26" />
+</head>
+
+<body bgcolor="#F6F654">
+<h1>Page 3</h1>	
+<hr />
+<form action="multi_page_form.php" method="POST">
+<table border=0>
+	<tr>
+		<th>Next of Kin</th>
+		<td><input type="text" size=40 maxlength=255 name="item[3][1]" value="<?php echo @$item[3][1]; ?>" /></td>
+	</tr>
+	<tr>
+		<th>Comments</th>
+		<td><textarea name="item[3][2]" rows=4 cols=40><?php echo @$item[3][2]; ?></textarea></td>
+	</tr>
+</table>
+<table>
+	<tr>
+		<td><input type='submit' name='page1' value='Page 1' /></td>
+		<td><input type='submit' name='page2' value='Page 2' /></td>
+		<td><input type='submit' name='page3' value='Page 3' /></td>
+	</tr>
+</table>
+<input type="hidden" name="page" value="3" />
+</form>
+</body>
+</html>

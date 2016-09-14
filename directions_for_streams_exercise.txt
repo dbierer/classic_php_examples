@@ -1,0 +1,32 @@
+Preparatory Steps for the Streams Exercise: 
+(From the command line of the Training VM)
+
+1. mkdir /usr/local/Zend/apache2/passwd
+
+2. mkdir /usr/local/Zend/apache2/htdocs/admin
+
+3. Create the file .htaccess to the admin directory (from your computer to the VM)
+   as follows:
+
+	AuthType Basic
+	AuthName "Password Required"
+	AuthUserFile /usr/local/Zend/apache2/passwd/.htpasswd
+	Require user administrator
+
+4. Populate the admin directory by copying a dozen or so random files into it
+
+5. Create the encrypted password file:
+
+    cd /usr/local/Zend/apache2/passwd
+    ../bin/htpasswd -c .htpasswd administrator
+
+    NOTE: You'll need to enter the administrator password twice
+
+6. Test access to this directory: http://IP-ADDRESS/admin/
+    You should get a prompt for username and password.
+
+    Username = administrator
+    Password = password
+
+7. Now you can write the code for the exercise.
+

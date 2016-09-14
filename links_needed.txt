@@ -1,0 +1,5 @@
+total 216
+lrwxrwxrwx 1 root root     21 2009-03-18 09:24 images -> zblogapp/html/images/
+lrwxrwxrwx 1 root root     20 2009-03-18 09:24 styles -> zblogapp/html/styles
+lrwxrwxrwx 1 root root     14 2009-03-18 09:20 zblog -> zblogapp/html/
+lrwxrwxrwx 1 zend zend     23 2010-05-03 17:09 zblog-nosearch -> zblogapp-nosearch/html/

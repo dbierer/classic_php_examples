@@ -1,0 +1,4 @@
+cp -v ~/Applications/mod_simpleemailform_1.8/helper.php /var/www/joomla25/modules/mod_simpleemailform/
+cp -v ~/Applications/mod_simpleemailform_1.8/*.xml /var/www/joomla25/modules/mod_simpleemailform/
+chown -v zed:www-data /var/www/joomla25/modules/mod_simpleemailform/*
+chmod -v 775 /var/www/joomla25/modules/mod_simpleemailform/*

@@ -1,0 +1,752 @@
+Wed 22 Jul 2012
+---------------
+1. Work testing back into ZFF2 labs
+2. Develop parallel app: shopping cart?
+
+Wed 11 Jul 2012
+---------------
+New snapshot: 
+http://my.phpcloud.com/container/create/snapshot/zff2-snapshot-20120711205343
+
+Tue 10 Jul 2012
+---------------
+Module.php: 	
+- replaced "events()" with "getEventManager()"
+- replaced "$app->events()->attach('route', array($this, 'onRouteFinish'), -100);" 
+  with: $eventManager->attach('route', array($this, 'onRouteFinish'), -100);
+Controllers: 	
+- replaced "Zend\Mvc\Controller\ActionController" with "Zend\Mvc\Controller\AbstractActionController"
+- replaced "$request->post()" with "$request->getPost()"
+Forms: 
+- 'label' moved from array key 'attributes' to 'options'
+View Scripts:
+- replaced "$this->escape()" with "$this->escapeHtml()"
+Admin Module:
+module.config.php:	'route'    => '/admin[/:action]',
+view scripts: 		removed all references to "admin-index/"
+
+Changed the database driver from "mysqli" to "pdo_mysql".  
+This fixed an amazing number of problems I'd had previously!
+
+TEST THE TESTS!!!
+
+Mon 09 Jul 2012
+---------------
+Holburn Medical Group
+7 Albyn Place
+Aberdeen, AB10 1YE
+
+T: 01224 400800
+
+Sun 08 Jul 2012
+---------------
+Train:
+dep 7:40 arr 9:15 / 20:36 arr 22:15
+£113.60 Friday
+£148.80 Saturday
+£148.80 Sunday
+each day for 4 = £411.12 for 3 days + taxi
+@ 4 people = £104 each
+
+Bus:
+dep 7:20 arr 9:25 / 19:30 arr 21:20
+£11.25 each way
+For 4 = £270 for 3 days
+@ 4 people = £80 each
+
+Car:
+£57.48 for 3 days + £50 insurance + £111.12 fuel = £218.60
+2 hours 13 minutes
+Est fuel cost: £18.52 1 way
+@ 5 people = £43.72 each
+
+MPV:
+£356.76 for 3 day + £50 insurance + £140 fuel = £546.76
+@ 7 people = £78.10 each
+
+Arnold Clark MPV:
+£420 for 3 days + £50??? insurance + £140 =  £610
+@ 9 people = £67.78 each
+
+
+Thu 14 Jun 2012
+---------------
+Virgin Media:
+ID 247487501
+Order 3514912
+HJ6257
+www.speedtester.bt.com - y - adsl fibre to cab - telephone number - 01224 639 568
+17070 - 
+
+Mon 28 May 2012
+---------------
+Simple Email Form:
+1. Fix problem where URLs pointing to articles (i.e. xxx?article=xxx&page=yyy) gets wiped out
+2. Fix problem where multiple instances of form renders same name and id tags for form element
+3. Fix problem where "From" address has a visible name which is unwanted
+
+Thu 10 May 2012
+---------------
+Cert Class: slide 138
+Renumber examples to match slides
+ 
+Mon 07 May 2012
+---------------
+1. ZFF2 Module 1 Labs
+2. Update phpCloud instructions for PHP Exp and ZFA courses
+
+Tue 01 May 2012
+---------------
+DVD Movies: Kaboom, Trust, Chronicles
+
+Mon 09 Apr 2012
+---------------
+http://my.phpcloud.com/container/create/snapshot/zfa1-snapshot-20120408154523
+
+Fri 06 Apr 2012
+---------------
+http://www.radioshackuk.co.uk/epages/BT2533.sf/en_GB/?ViewAction=View&ObjectID=11540732&Page=2
+1 x http://www.radioshackuk.co.uk/epages/BT2533.sf/en_GB/?ObjectPath=/Shops/BT2533/Products/AC-012GOLD
+1 x http://www.radioshackuk.co.uk/epages/BT2533.sf/en_GB/?ObjectPath=/Shops/BT2533/Products/AC-047
+2 x http://www.radioshackuk.co.uk/epages/BT2533.sf/en_GB/?ObjectPath=/Shops/BT2533/Products/CABLE-404/SubProducts/cable-404-0003
+1 x USB cassette
+2 x glasses for you and Siri
+1 x fleshlight
+Split out songs from CD into singles on CD baby
+Update "The End, And Then?"
+Seek publishers
+Mobile phones
+Watch for Siri
+Business account @ 1 & 1 (or a2hosting???)
+The Slot
+
+Thu 05 Apr 2012
+---------------
+1. Refine outline for ZFF2 / ZFA2 courses
+   Produce flow diagram for Deirdre
+2. What will it take to port apps for ZFA course to cloud?
+3. Meeting 11 April @ 11:30 AM PST
+
+Wed 21 Mar 2012
+---------------
+Phoned West End Police Station @ 0845 600 5700 @ 10 AM
+
+Fri 16 Feb 2012
+---------------
+http://newdirectionsdentistry.com/index.php?option=com_content&view=article&id=79&Itemid=109
+
+Sun 12 Feb 2012
+---------------
+And as a main topic i would like to go through writing custom route and ACL. I have a requirement ( client ) about writing a custom url. They want to use search terms and some predefined word from database into the product url. I shall try by myself by this weekend and i shall email you by sunday. 
+
+Tue 07 Feb 2012
+---------------
+3 DVD Set Button
+
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="hosted_button_id" value="HKAJS4MS6TH6L">
+<table>
+<tr><td><input type="hidden" name="on0" value="Please Select One of the Following:">Please Select One of the Following:</td></tr><tr><td><select name="os0">
+	<option value="California">California $327.84 USD</option>
+	<option value="Other USA">Other USA $303.50 USD</option>
+	<option value="Canada">Canada $309.50 USD</option>
+	<option value="International">International $311.50 USD</option>
+</select> </td></tr>
+</table>
+<input type="hidden" name="currency_code" value="USD">
+<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+</form>
+
+
+Single Disc DVD Button
+
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="hosted_button_id" value="A829BL7RSXBCE">
+<table>
+<tr><td><input type="hidden" name="on0" value="Please Select One of the Following:">Please Select One of the Following:</td></tr><tr><td><select name="os0">
+	<option value="California">California $219.59 USD</option>
+	<option value="Other USA">Other USA $195.85 USD</option>
+	<option value="Canada">Canada $209.50 USD</option>
+	<option value="International">International $211.50 USD</option>
+</select> </td></tr>
+</table>
+<input type="hidden" name="currency_code" value="USD">
+<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+</form>
+
+
+Mon 06 Feb 2012
+---------------
+/kunden/homepages/9/d232055694/htdocs/unlikelysource.net/joomla17/captcha
+#7F7F7F
+#FFB619
+#90EE90
+/kunden/homepages/9/d232055694/htdocs/unlikelysource.net/joomla17/tmp
+
+I’m going to see what I can do with your questions..
+ 
+1. Item Name ( there will be two products - items)
+            1. Three Disc DVD Set
+            2. Single Disc DVD
+ 
+2. Item ID (can be your product number)
+            1 . 3-set DVD
+            2. 1-DVD
+ 
+3. Price
+            1. Three Disc DVD Set - $295.00
+            2. Single Disc DVD - $195.00
+ 
+4. Currency (default = US Dollars)
+            Yes, US Dollars
+ 
+5. Shipping amount (right now we offer 3 shipping methods and prices – I hope we will get those options!! Or if not I guess we’ll have to have more buttons to choose from? ) I did see that where you directed me two there are some Customize Buttons with dropdown menu options – Maybe they would work here?
+           
+USA Priority Mail $8.50
+CANADA Priority Mail $14.50
+INTERNATIONAL Priority Mail $16.50
+The shipping price (the SAME for both the single and 3-disc set) includes handling so the totals. So Total for the DVDs and Shipping is as follows.
+ 
+3-Disc Set
+California: $327.84
+Other USA: $303.50
+Canada: $309.50
+International: $311.50
+ 
+Single Disc
+California: $219.59
+Within USA: $195.85
+Canada: $209.50
+International: $211.50
+ 
+6. Tax rate
+Only taxed on orders sent to CA: 8.25% (I hope they have that flexibility) So far we haven’t had to charge tax on orders to any other state except CA. So that would be a good question to ask as they should be aware of that issue!!!
+ 
+7. Do you want the customer to be able to change quantity (i.e. more than 1 item)?
+I think I know what you mean but not sure. Do you mean if they wanted to order two DVD sets, or 4 single sets? That has never happened so it may not be critical. On the Order Page in NDD we could put to order more than one DVD (3-Disc or Single Disc) please call 800-335-7755 within the USA and Canada. Or call 707-829-7220 Internationally. We could also add that spam proof email you set up on the contact page???
+ 
+If we wanted it to be able to handle more than one DVD would that be simple to do? Sort of like a regular shopping cart where they can just enter 3, 5, 7???
+ 
+8. What is the URL when a customer cancels?
+Not sure what you mean. Say they get to the PayPal page and then decide to cancel? If that is it then I think they should go back to the Order Page on NDD where they started to order. http://www.newdirectionsdentistry.com/index.php?option=com_content&view=article&id=75&Itemid=98
+ 
+9. What is the URL when a purchase succeeds?
+In the demo it said once the order is placed an email receipt will be sent to us and the client (I guess I should give you that to and if you need them) and the customer would be sent back to the webpage he ordered from. If that is what you mean then back to the same Order Page: http://www.newdirectionsdentistry.com/index.php?option=com_content&view=article&id=75&Itemid=98
+If only one email can be sent to us sent it to tom@mercurysafedentists.com .. If two then add Brenda’s – brenda@dentalwellness4u.com )
+ 
+So I hope this helps and if you need more info let me know. I think – unless you have a reason why not – and if I’m thinking straight, that the buttons would be place on the Order Page???? Of course we’d have to re-write some things.
+ 
+
+Sat 04 Feb 2012
+---------------
+REF: https://github.com/thebestsolution/ZendMultipleAuthentications
+
+Fri 03 Feb 2012
+---------------
+01291 
+
+Hi Doug, Deirdre has been working on updating the class materials with the edits the instructors put into the GoogleDocs spreadsheet we created. 
+
+Can you do the following for us (and keep track of your time of course)
+
+1)       Check out the blue highlighted items on the Quick Start tab
+a.        Do you agree with Michael’s comments and provide guidance (Deirdre sent you info via email also)
+---------------------------------------------------------------------------------------------
+1. Row 3 re: Mod 4D: Slide 3 Notes ... need new URL
+   --> already addressed in previous email
+
+---------------------------------------------------------------------------------------------
+2. Row 5 re: NO EXERCISES ON THIS SLIDE
+   --> Deidre noted that instructions are provided in the Participants' Exercise Guide
+
+---------------------------------------------------------------------------------------------
+3. Row 6 re: Michael's comment: teach filter_* functions instead of or in addition to regexp for emails and other common patterns
+   --> I agree as it will also help prepare any students for Zend Framework and Zend_Filter down the road
+   --> This will need three slides, however.  Here is a suggestion:
+
+Filter Slide 1:
+
+Filter Functions
+
+filter_has_var — Checks if variable of specified type exists
+filter_id — Returns the filter ID belonging to a named filter
+filter_input_array — Gets external variables and optionally filters them
+filter_input — Gets a specific external variable by name and optionally filters it
+filter_list — Returns a list of all supported filters
+filter_var_array — Gets multiple variables and optionally filters them
+filter_var — Filters a variable with a specified filter
+
+Instructor's notes: 
+See http://php.net/manual/en/ref.filter.php
+
+Filter Slide 2:
+
+filter_input_array() example
+
+$args = array(
+    'product_id'   => FILTER_SANITIZE_ENCODED,
+    'component'    => array('filter'    => FILTER_VALIDATE_INT,
+                            'flags'     => FILTER_REQUIRE_ARRAY, 
+                            'options'   => array('min_range' => 1, 'max_range' => 10)
+                           ),
+    'versions'     => FILTER_SANITIZE_ENCODED,
+    'doesnotexist' => FILTER_VALIDATE_INT,
+    'testscalar'   => array(
+                            'filter' => FILTER_VALIDATE_INT,
+                            'flags'  => FILTER_REQUIRE_SCALAR,
+                           ),
+    'testarray'    => array(
+                            'filter' => FILTER_VALIDATE_INT,
+                            'flags'  => FILTER_REQUIRE_ARRAY,
+                           )
+
+);
+
+$myinputs = filter_input_array(INPUT_POST, $args);
+var_dump($myinputs);
+
+Instructor's notes:
+This block of code is taken from Example #1 
+See http://uk3.php.net/manual/en/function.filter-input-array.php
+
+Filter Slide 3:
+
+filter_input_array() example output
+
+Assuming that $_POST contains the following:
+
+$_POST = array(
+    'product_id'    => 'libgd<script>',
+    'component'     => '10',
+    'versions'      => '2.0.33',
+    'testscalar'    => array('2', '23', '10', '12'),
+    'testarray'     => '2',
+);
+
+This output is produced:
+
+array(6) {
+  ["product_id"]=> array(1) { [0]=> string(17) "libgd%3Cscript%3E" }
+  ["component"]=> array(1) { [0]=> int(10) }
+  ["versions"]=> array(1) { [0]=> string(6) "2.0.33" }
+  ["doesnotexist"]=> NULL
+  ["testscalar"]=> bool(false)
+  ["testarray"]=> array(1) { [0]=> int(2) }
+}
+
+---------------------------------------------------------------------------------------------
+4. Row 7 re: Michael's comment: drop the 'tables' example - serves no purpose
+   --> Agree.  HTML tables are generally no longer used for forms.  Most people use <div> tags and CSS classes.  
+       Since this is not a class on manipulating CSS styles, recommend just dropping the slide.
+
+---------------------------------------------------------------------------------------------
+5. Row 8 re: Doug's comment: $_FILES needs to be addressed
+   --> Recommend adding the following after $_REQUEST:
+   --> $_FILES 
+	* An associative array of items uploaded to the current script via the HTTP POST method
+	* Originates with an HTML <input type="file" ... /> form tag
+
+Instructor's Notes:
+For info on $_FILES see http://uk3.php.net/manual/en/reserved.variables.files.php
+ 
+=============================================================================================
+2)       PHP 5.3 Cert tab
+a.        3 blue boxes with Robyn’s comments.  If you agree can you provide fixes/new code if needed
+b.	  mod 4-5-6
+---------------------------------------------------------------------------------------------
+Quiz #43
+RE: Robyn's comment: 
+"This quiz question comes out of nowhere. The topic it asks about has not been covered at all yet. There should be some info about this before we get a question on it."
+
+RESPONSE:
+Agree.  This topic is covered in the SPL subsection of the OOP presentation.  See module 7-8 slides 41 - 43
+
+Substitute this quiz question taken from php.net documentation, example #3, simple array_merge example:
+
+What is the output of the following sample of code?
+
+<?php
+$array1 = array();
+$array2 = array(1 => "data");
+$result = array_merge($array1, $array2);
+echo $result[1];
+?>
+
+A. data
+B. 0 
+C. Array
+D. None of the above <-- correct answer
+
+Instructor's Notes:
+// EXPLANATION:
+numeric array keys are renumbered after array_merge
+var_dump($result) would return:
+array(1) { [0]=> string(4) "data" }
+REF: http://php.net/manual/en/function.array-merge.php (example #3)
+
+---------------------------------------------------------------------------------------------
+Quiz #44	
+RE: Robyn's Comment:
+No right answer given. It is supposed to be B, but B should say something like:
+Error: stream_get_contents requires a file handler, not a filename
+
+RESPONSE:
+This was fixed in PHP5-3-Materials_v2c/PHP5_Cert_Training_v4_Mod-4-5-6b
+
+
+---------------------------------------------------------------------------------------------
+Quiz #53	
+RE: Robyn's Comment:
+The code in this question obviously comes from the php.net
+manual page for Anonymous functions. But it is used out of context,
+omitting part of the code, so that the question is unclear.
+
+RESPONSE:
+Suggest rewording the question as follows:
+
+Given this code, what change would need to be made to allow the anonymous function
+to use $tax and to update $total?
+
+
+=============================================================================================
+3)       ZFF tab
+
+Row 5: RE: Clarks' Comment:
+Drop this exercise altogether. The concepts presented by the corresponding slide material is too-indepth for beginners to ZF, and is relevant only to people writing their own Providers. This exercise is testing knowledge of material in the advanced course.
+
+RESPONSE:
+Deirdre and I discussed this at length when we were reviewing the materials for NIIT.
+As I recall, the decision was to keep this exercise simply as a mnemonic device to help students
+retain the materials covered in the slides.  Although there is no lab in which they dig deeper into
+Zend_Tool, the concepts covered are important for them to know.
+
+---------------------------------------------------------------------------------------------
+Row 8: RE: Clark's comment:
+Future updates to the course should incorporate the material from ZFA materials, which do not make such a strong association between Data Access and the Model, and between Business Logic and the Controller.
+
+Suggested fix here: Change "Business Logic" to "Application Control Flow", and change "Data Access" to "Business Logic".
+
+RESPONSE:
+In the ZFA course, for the Controller layer, "Flow Logic" is suggested in place of "Business Logic".
+Unfortunately there is no RFC for MVC, and the definitions for each of the layers varies widely among implementations.
+The original architectural design came out of Smalltalk in the early 1980s.
+Recommend that we do not deviate too far from the Zend Framework Reference Guide.
+Note the following definitions, which come from: http://framework.zend.com/manual/en/learning.quickstart.intro.html
+
+Model - This is the part of your application that defines its basic functionality behind a set of abstractions. Data access routines and some business logic can be defined in the model.
+
+View - Views define exactly what is presented to the user. Usually controllers pass data to each view to render in some format. Views will often collect data from the user, as well. This is where you're likely to find HTML markup in your MVC applications.
+
+Controller - Controllers bind the whole pattern together. They manipulate models, decide which view to display based on the user's request and other factors, pass along the data that each view will need, or hand off control to another controller entirely.
+
+---------------------------------------------------------------------------------------------
+Row 15: RE: Clark's comment:
+Minor change: Since Zend and PHP now recommends using long tags, and considers the shorthand 'echo' deprecated, change <?= to <?php echo
+
+RESPONSE:
+Recommend following Clark's suggestion.  The "proper" syntax would now be:
+
+<?php echo $this->form ?>
+
+---------------------------------------------------------------------------------------------
+Row 21: RE: Clark's comment:
+Replace all occurrences of the deprecated method fetchNew() with createRow().
+
+RESPONSE:
+I can confirm, from the ZF API documentation that Clark's recommendation is correct.
+Would need access to the raw VM files to do this.
+Recommend that Slavey take this task on.
+BUT ... are we going to move the PHP cloud instead???
+
+
+
+PHP Exp
+Mod 4 Slide 03 ---------------------------------------------------------------------------
+Instructor notes... need new URL 
+Checked URLs.  These two are OK:
+http://www.php.net/manual/en/install.php
+http://gtk.php.net/
+
+The 3 bullet points under "Dev Envt --" do not match the material on the slides.
+Recommend replacing as follows:
+
+- PHP: http://www.php.net/downloads.php
+
+- Web Server:
+  Apache: http://httpd.apache.org/
+  IIS (Internet Information Services): http://www.iis.net/
+  nginx: http://nginx.org/en/
+
+- Web Browser:
+  Internet Explorer: http://windows.microsoft.com/internet-explorer/products/ie/home
+  Firefox:  http://www.mozilla.org/firefox/new/
+  Chrome: https://www.google.com/chrome
+  Sarari: http://www.apple.com/safari/
+  Opera: http://www.opera.com/
+  Market Share Counter: http://www.w3counter.com/globalstats.php
+
+Mod 4 Slide 04 ---------------------------------------------------------------------------
+http://us2.php.net/ini.core checks out OK
+Recommend removing link to http://www.onlamp.com/pub/a/php/2001/01/11/php_admin.html
+Suggest replacing with the following link:
+http://en.wikipedia.org/wiki/List_of_AMP_packages
+
+(DEIRDRE: the above link is recommended for these reasons:
+0. Wikipedia is a well respected source of info
+1. It addresses Linux, Windows and Mac
+2. It gives links to "howto"s so that people can get practical installation instructions
+3. It specifically addresses "PHP" (and not PERL)
+4. It mentions Zend Server!!!)
+
+Add to instructor notes:
+"If you get questions on the nginx web server and PHP please see: 
+http://www.zalas.eu/setting-up-a-php-development-environment-with-nginx-on-ubuntu-1104"
+
+Mod 4 Slide 15 ---------------------------------------------------------------------------
+Recommend changing "URL:" on the slide to "Example URL:"
+
+(DEIRDRE: otherwise people may think this is an actual URL they can go to!)
+
+Mod 4 Slide 16 ---------------------------------------------------------------------------
+Recommend changing "URL:" on the slide to "Example URL:"
+
+(DEIRDRE: otherwise people may think this is an actual URL they can go to!)
+
+
+Mod 4 Slide 30 ---------------------------------------------------------------------------
+All the URLs on this slide tested out OK.  
+The only change you might consider is going from "www" to "us2".
+I.e.:
+http://us2.php.net/ini.core
+http://us2.php.net/session.configuration.php
+http://us2.php.net/datetime.configuration.php
+
+
+Mod 6 Slide 34 ---------------------------------------------------------------------------
+Did not see any problems with this slide
+
+Mod 9 Slide 21 ---------------------------------------------------------------------------
+Instructor Notes:
+These URLs check out OK:
+http://us2.php.net/manual/en/ref.errorfunc.php
+http://us2.php.net/manual/en/security.errors.php
+
+Please change the following from:
+"Code sample from 
+http://www.php.net/manual/en/ref.errorfunc.php"
+
+to this:
+"Code sample from
+http://us2.php.net/manual/en/errorfunc.examples.php"
+
+Mod 9 Slide 51 ---------------------------------------------------------------------------
+Instructor Notes:
+Starting where is says "Example: let them think about this and try to answer ... "
+There is no material on the slide which corresponds with this note.  
+Recommend either trying to reproduce an error which matches this description, or
+removing the instructor notes at this point
+
+
+Tue 31 Jan 2012
+---------------
+18883848400
+[Admin login] from source 192.168.0.5, Tuesday, Jan 31,2012 17:02:49
+[DHCP IP: (192.168.0.5)] to MAC address D0:67:E5:34:06:6C, Tuesday, Jan 31,2012 17:02:43
+[DHCP IP: (192.168.0.6)] to MAC address 00:24:2B:A1:4B:13, Tuesday, Jan 31,2012 16:52:44
+[DHCP IP: (192.168.0.6)] to MAC address 00:24:2B:A1:4B:13, Tuesday, Jan 31,2012 16:39:24
+[DHCP IP: (192.168.0.6)] to MAC address 00:24:2B:A1:4B:13, Tuesday, Jan 31,2012 16:38:34
+[DHCP IP: (192.168.0.6)] to MAC address 00:24:2B:A1:4B:13, Tuesday, Jan 31,2012 16:35:07
+[DHCP IP: (192.168.0.3)] to MAC address 10:1F:74:3A:23:75, Tuesday, Jan 31,2012 14:50:50
+[DHCP IP: (192.168.0.3)] to MAC address 10:1F:74:3A:23:75, Tuesday, Jan 31,2012 14:50:40
+[Internet connected] IP address: 86.29.178.96, Tuesday, Jan 31,2012 14:43:40
+[Internet disconnected] Tuesday, Jan 31,2012 14:41:06
+[DHCP IP: (192.168.0.3)] to MAC address 10:1F:74:3A:23:75, Tuesday, Jan 31,2012 13:38:06
+[DHCP IP: (192.168.0.3)] to MAC address 10:1F:74:3A:23:75, Tuesday, Jan 31,2012 13:37:56
+[DHCP IP: (192.168.0.3)] to MAC address 10:1F:74:3A:23:75, Tuesday, Jan 31,2012 10:06:32
+[DHCP IP: (192.168.0.3)] to MAC address 10:1F:74:3A:23:75, Tuesday, Jan 31,2012 10:06:22
+[DHCP IP: (192.168.0.3)] to MAC address 10:1F:74:3A:23:75, Tuesday, Jan 31,2012 10:06:12
+[DHCP IP: (192.168.0.3)] to MAC address 10:1F:74:3A:23:75, Tuesday, Jan 31,2012 10:06:02
+[DHCP IP: (192.168.0.3)] to MAC address 10:1F:74:3A:23:75, Tuesday, Jan 31,2012 10:05:52
+[DHCP IP: (192.168.0.3)] to MAC address 10:1F:74:3A:23:75, Tuesday, Jan 31,2012 10:05:42
+[DHCP IP: (192.168.0.3)] to MAC address 10:1F:74:3A:23:75, Tuesday, Jan 31,2012 10:05:32
+[DHCP IP: (192.168.0.3)] to MAC address 10:1F:74:3A:23:75, Tuesday, Jan 31,2012 10:05:22
+[Internet connected] IP address: 86.31.69.157, Tuesday, Jan 31,2012 09:58:25
+[Internet disconnected] Tuesday, Jan 31,2012 09:56:52
+[DHCP IP: (192.168.0.6)] to MAC address 00:24:2B:A1:4B:13, Monday, Jan 30,2012 21:23:48
+[DHCP IP: (192.168.0.6)] to MAC address 00:24:2B:A1:4B:13, Monday, Jan 30,2012 21:17:46
+[DHCP IP: (192.168.0.6)] to MAC address 00:24:2B:A1:4B:13, Monday, Jan 30,2012 21:17:10
+[DHCP IP: (192.168.0.6)] to MAC address 00:24:2B:A1:4B:13, Monday, Jan 30,2012 20:48:43
+[DHCP IP: (192.168.0.6)] to MAC address 00:24:2B:A1:4B:13, Monday, Jan 30,2012 20:48:04
+[DHCP IP: (192.168.0.6)] to MAC address 00:24:2B:A1:4B:13, Monday, Jan 30,2012 20:32:18
+[DHCP IP: (192.168.0.6)] to MAC address 00:24:2B:A1:4B:13, Monday, Jan 30,2012 20:31:12
+[DHCP IP: (192.168.0.6)] to MAC address 00:24:2B:A1:4B:13, Monday, Jan 30,2012 19:47:43
+[DHCP IP: (192.168.0.3)] to MAC address 10:1F:74:3A:23:75, Monday, Jan 30,2012 17:35:22
+[DHCP IP: (192.168.0.3)] to MAC address 10:1F:74:3A:23:75, Monday, Jan 30,2012 05:35:22
+[DHCP IP: (192.168.0.3)] to MAC address 10:1F:74:3A:23:75, Sunday, Jan 29,2012 17:35:22
+[DHCP IP: (192.168.0.3)] to MAC address 10:1F:74:3A:23:75, Sunday, Jan 29,2012 17:35:12
+[DHCP IP: (192.168.0.3)] to MAC address 10:1F:74:3A:23:75, Sunday, Jan 29,2012 14:25:33
+[DHCP IP: (192.168.0.3)] to MAC address 10:1F:74:3A:23:75, Sunday, Jan 29,2012 14:25:23
+[DHCP IP: (192.168.0.3)] to MAC address 10:1F:74:3A:23:75, Sunday, Jan 29,2012 14:25:13
+[DHCP IP: (192.168.0.3)] to MAC address 10:1F:74:3A:23:75, Sunday, Jan 29,2012 14:25:03
+[DHCP IP: (192.168.0.3)] to MAC address 10:1F:74:3A:23:75, Sunday, Jan 29,2012 14:24:53
+[DHCP IP: (192.168.0.3)] to MAC address 10:1F:74:3A:23:75, Sunday, Jan 29,2012 14:24:43
+[DHCP IP: (192.168.0.3)] to MAC address 10:1F:74:3A:23:75, Sunday, Jan 29,2012 14:24:33
+[DHCP IP: (192.168.0.3)] to MAC address 10:1F:74:3A:23:75, Sunday, Jan 29,2012 14:24:23
+[DHCP IP: (192.168.0.3)] to MAC address 10:1F:74:3A:23:75, Sunday, Jan 29,2012 14:24:13
+[DHCP IP: (192.168.0.3)] to MAC address 10:1F:74:3A:23:75, Sunday, Jan 29,2012 14:24:03
+[DHCP IP: (192.168.0.3)] to MAC address 10:1F:74:3A:23:75, Sunday, Jan 29,2012 14:23:53
+[DHCP IP: (192.168.0.3)] to MAC address 10:1F:74:3A:23:75, Sunday, Jan 29,2012 14:23:43
+[DHCP IP: (192.168.0.3)] to MAC address 10:1F:74:3A:23:75, Sunday, Jan 29,2012 14:23:33
+[DHCP IP: (192.168.0.3)] to MAC address 10:1F:74:3A:23:75, Sunday, Jan 29,2012 14:23:23
+[DHCP IP: (192.168.0.6)] to MAC address 00:24:2B:A1:4B:13, Sunday, Jan 29,2012 11:59:04
+[DHCP IP: (192.168.0.6)] to MAC address 00:24:2B:A1:4B:13, Saturday, Jan 28,2012 22:23:56
+[DHCP IP: (192.168.0.3)] to MAC address 10:1F:74:3A:23:75, Saturday, Jan 28,2012 21:53:23
+[DHCP IP: (192.168.0.3)] to MAC address 10:1F:74:3A:23:75, Saturday, Jan 28,2012 21:53:13
+[DHCP IP: (192.168.0.3)] to MAC address 10:1F:74:3A:23:75, Saturday, Jan 28,2012 20:53:23
+[DHCP IP: (192.168.0.3)] to MAC address 10:1F:74:3A:23:75, Saturday, Jan 28,2012 20:53:13
+[DHCP IP: (192.168.0.3)] to MAC address 10:1F:74:3A:23:75, Saturday, Jan 28,2012 20:45:38
+[DHCP IP: (192.168.0.3)] to MAC address 10:1F:74:3A:23:75, Saturday, Jan 28,2012 20:45:28
+[DHCP IP: (192.168.0.6)] to MAC address 00:24:2B:A1:4B:13, Saturday, Jan 28,2012 18:16:54
+[DHCP IP: (192.168.0.6)] to MAC address 00:24:2B:A1:4B:13, Saturday, Jan 28,2012 18:16:18
+[DHCP IP: (192.168.0.6)] to MAC address 00:24:2B:A1:4B:13, Saturday, Jan 28,2012 18:12:51
+[DHCP IP: (192.168.0.6)] to MAC address 00:24:2B:A1:4B:13, Saturday, Jan 28,2012 13:38:28
+[DHCP IP: (192.168.0.3)] to MAC address 10:1F:74:3A:23:75, Saturday, Jan 28,2012 13:21:19
+[DHCP IP: (192.168.0.3)] to MAC address 10:1F:74:3A:23:75, Saturday, Jan 28,2012 13:21:09
+[DHCP IP: (192.168.0.4)] to MAC address F0:4D:A2:85:0B:6D, Saturday, Jan 28,2012 08:55:23
+[DHCP IP: (192.168.0.5)] to MAC address D0:67:E5:34:06:6C, Saturday, Jan 28,2012 08:55:11
+[DHCP IP: (192.168.0.4)] to MAC address F0:4D:A2:85:0B:6D, Friday, Jan 27,2012 23:45:45
+[DHCP IP: (192.168.0.5)] to MAC address D0:67:E5:34:06:6C, Friday, Jan 27,2012 23:45:32
+[DHCP IP: (192.168.0.3)] to MAC address 10:1F:74:3A:23:75, Friday, Jan 27,2012 18:53:39
+[DHCP IP: (192.168.0.3)] to MAC address 10:1F:74:3A:23:75, Friday, Jan 27,2012 18:53:29
+[DHCP IP: (192.168.0.6)] to MAC address 00:24:2B:A1:4B:13, Friday, Jan 27,2012 16:52:07
+[DHCP IP: (192.168.0.6)] to MAC address 00:24:2B:A1:4B:13, Friday, Jan 27,2012 16:35:37
+[DHCP IP: (192.168.0.5)] to MAC address D0:67:E5:34:06:6C, Friday, Jan 27,2012 16:14:12
+[DHCP IP: (192.168.0.4)] to MAC address F0:4D:A2:85:0B:6D, Friday, Jan 27,2012 16:13:40
+[DHCP IP: (192.168.0.6)] to MAC address 00:24:2B:A1:4B:13, Friday, Jan 27,2012 15:01:44
+[DHCP IP: (192.168.0.3)] to MAC address 10:1F:74:3A:23:75, Friday, Jan 27,2012 13:38:38
+[DHCP IP: (192.168.0.3)] to MAC address 10:1F:74:3A:23:75, Friday, Jan 27,2012 13:38:28
+[DHCP IP: (192.168.0.6)] to MAC address 00:24:2B:A1:4B:13, Friday, Jan 27,2012 13:07:46
+[DHCP IP: (192.168.0.6)] to MAC address 00:24:2B:A1:4B:13, Friday, Jan 27,2012 11:04:33
+[DHCP IP: (192.168.0.4)] to MAC address F0:4D:A2:85:0B:6D, Thursday, Jan 26,2012 23:41:36
+[DHCP IP: (192.168.0.5)] to MAC address D0:67:E5:34:06:6C, Thursday, Jan 26,2012 23:24:47
+[DHCP IP: (192.168.0.3)] to MAC address 10:1F:74:3A:23:75, Thursday, Jan 26,2012 22:10:54
+[DHCP IP: (192.168.0.3)] to MAC address 10:1F:74:3A:23:75, Thursday, Jan 26,2012 22:10:44
+[DHCP IP: (192.168.0.6)] to MAC address 00:24:2B:A1:4B:13, Thursday, Jan 26,2012 21:10:55
+[DHCP IP: (192.168.0.3)] to MAC address 10:1F:74:3A:23:75, Thursday, Jan 26,2012 20:32:45
+[DHCP IP: (192.168.0.3)] to MAC address 10:1F:74:3A:23:75, Thursday, Jan 26,2012 20:32:35
+[DHCP IP: (192.168.0.5)] to MAC address D0:67:E5:34:06:6C, Thursday, Jan 26,2012 16:14:31
+[DHCP IP: (192.168.0.4)] to MAC address F0:4D:A2:85:0B:6D, Thursday, Jan 26,2012 16:14:15
+[DHCP IP: (192.168.0.6)] to MAC address 00:24:2B:A1:4B:13, Thursday, Jan 26,2012 13:27:34
+[DHCP IP: (192.168.0.6)] to MAC address 00:24:2B:A1:4B:13, Thursday, Jan 26,2012 11:50:15
+[DHCP IP: (192.168.0.3)] to MAC address 10:1F:74:3A:23:75, Thursday, Jan 26,2012 09:47:08
+[DHCP IP: (192.168.0.3)] to MAC address 10:1F:74:3A:23:75, Thursday, Jan 26,2012 09:46:58
+[DHCP IP: (192.168.0.3)] to MAC address 10:1F:74:3A:23:75, Thursday, Jan 26,2012 05:56:54
+[DHCP IP: (192.168.0.3)] to MAC address 10:1F:74:3A:23:75, Thursday, Jan 26,2012 05:56:44
+[DHCP IP: (192.168.0.3)] to MAC address 10:1F:74:3A:23:75, Thursday, Jan 26,2012 02:41:09
+[DHCP IP: (192.168.0.3)] to MAC address 10:1F:74:3A:23:75, Thursday, Jan 26,2012 02:40:59
+[DHCP IP: (192.168.0.4)] to MAC address F0:4D:A2:85:0B:6D, Wednesday, Jan 25,2012 23:40:36
+[DHCP IP: (192.168.0.5)] to MAC address D0:67:E5:34:06:6C, Wednesday, Jan 25,2012 23:39:48
+[DHCP IP: (192.168.0.6)] to MAC address 00:24:2B:A1:4B:13, Wednesday, Jan 25,2012 23:23:21
+[DHCP IP: (192.168.0.3)] to MAC address 10:1F:74:3A:23:75, Wednesday, Jan 25,2012 22:55:40
+[DHCP IP: (192.168.0.3)] to MAC address 10:1F:74:3A:23:75, Wednesday, Jan 25,2012 22:55:30
+[DHCP IP: (192.168.0.6)] to MAC address 00:24:2B:A1:4B:13, Wednesday, Jan 25,2012 22:24:50
+[DHCP IP: (192.168.0.3)] to MAC address 10:1F:74:3A:23:75, Wednesday, Jan 25,2012 16:42:25
+[DHCP IP: (192.168.0.3)] to MAC address 10:1F:74:3A:23:75, Wednesday, Jan 25,2012 16:42:15
+[DHCP IP: (192.168.0.4)] to MAC address F0:4D:A2:85:0B:6D, Wednesday, Jan 25,2012 16:14:13
+[DHCP IP: (192.168.0.5)] to MAC address D0:67:E5:34:06:6C, Wednesday, Jan 25,2012 15:38:52
+[DHCP IP: (192.168.0.3)] to MAC address 10:1F:74:3A:23:75, Wednesday, Jan 25,2012 14:46:55
+[DHCP IP: (192.168.0.3)] to MAC address 10:1F:74:3A:23:75, Wednesday, Jan 25,2012 14:46:45
+[DHCP IP: (192.168.0.6)] to MAC address 00:24:2B:A1:4B:13, Wednesday, Jan 25,2012 11:08:42
+[DHCP IP: (192.168.0.6)] to MAC address 00:24:2B:A1:4B:13, Wednesday, Jan 25,2012 10:10:15
+[DHCP IP: (192.168.0.3)] to MAC address 10:1F:74:3A:23:75, Wednesday, Jan 25,2012 10:00:10
+[DHCP IP: (192.168.0.3)] to MAC address 10:1F:74:3A:23:75, Wednesday, Jan 25,2012 10:00:00
+[DHCP IP: (192.168.0.3)] to MAC address 10:1F:74:3A:23:75, Wednesday, Jan 25,2012 09:48:55
+[DHCP IP: (192.168.0.3)] to MAC address 10:1F:74:3A:23:75, Wednesday, Jan 25,2012 09:48:45
+[DHCP IP: (192.168.0.3)] to MAC address 10:1F:74:3A:23:75, Wednesday, Jan 25,2012 06:18:54
+[DHCP IP: (192.168.0.3)] to MAC address 10:1F:74:3A:23:75, Wednesday, Jan 25,2012 06:18:44
+[DHCP IP: (192.168.0.5)] to MAC address D0:67:E5:34:06:6C, Tuesday, Jan 24,2012 23:40:31
+[DHCP IP: (192.168.0.4)] to MAC address F0:4D:A2:85:0B:6D, Tuesday, Jan 24,2012 23:40:19
+[DHCP IP: (192.168.0.3)] to MAC address 10:1F:74:3A:23:75, Tuesday, Jan 24,2012 22:07:11
+[DHCP IP: (192.168.0.3)] to MAC address 10:1F:74:3A:23:75, Tuesday, Jan 24,2012 22:07:01
+[DHCP IP: (192.168.0.6)] to MAC address 00:24:2B:A1:4B:13, Tuesday, Jan 24,2012 21:40:49
+[DHCP IP: (192.168.0.6)] to MAC address 00:24:2B:A1:4B:13, Tuesday, Jan 24,2012 18:57:58
+[DHCP IP: (192.168.0.4)] to MAC address F0:4D:A2:85:0B:6D, Tuesday, Jan 24,2012 16:16:36
+[DHCP IP: (192.168.0.5)] to MAC address D0:67:E5:34:06:6C, Tuesday, Jan 24,2012 16:16:36
+[DHCP IP: (192.168.0.6)] to MAC address 00:24:2B:A1:4B:13, Tuesday, Jan 24,2012 14:32:31
+[DHCP IP: (192.168.0.5)] to MAC address D0:67:E5:34:06:6C, Monday, Jan 23,2012 23:42:14
+[DHCP IP: (192.168.0.4)] to MAC address F0:4D:A2:85:0B:6D, Monday, Jan 23,2012 23:42:07
+[Time synchronized with NTP server] Monday, Jan 23,2012 23:38:20
+[Internet connected] IP address: 86.23.119.84, Monday, Jan 23,2012 23:38:10
+[Admin login] from source 192.168.0.2, Monday, Jan 23,2012 23:37:50
+[Initialized, firmware version: V1.0.0.33_1.0.21WW] Monday, Jan 23,2012 23:37:16
+
+
+Fri 27 Jan 2012
+---------------
+Ethnic Minorities Help Line 0141 204 2888
+Prison Social Services: +33 1 45 87 60 72
+​Thomas --
+
+Had a look at your company's website.  Looks good.  Oddly enough I used to live in Finchampstead, just a hop skip and a jump from Wokingham! Attached please find the notes and thanks for your participation in class!
+
+Cheers,
+
+db
+
+​
+Sat 21 Jan 2012
+---------------
+Zadid: how does Magento implement forms?
+
+Mon 16 Jan 2012
+---------------
+Zend Server + Zend Studio courses
+Send list of ideas for PHP Sec course to Debbie
+
+New PHP Security Course:
+
+1. Use materials from Open Web Application Security Project (owasp.org)
+   A. Application Security Principles (https://www.owasp.org/index.php/Category:Principle)
+	-- Examples: Defense in Depth, Fail Securely, Don't Trust Services, etc.
+   B. Threat Agents (https://www.owasp.org/index.php/Category:Threat_Agent)
+	-- Threat Agent = Capabilities + Intentions + Past Activities 
+	-- Examples: Accidents, Carelessness, Competitors, Computer Viruses, Internal Developer, Logic/time bomb, etc.
+   C. Threat Risk Modeling (https://www.owasp.org/index.php/Perform_security_analysis_of_system_requirements_and_design_%28threat_modeling%29)
+   D. Understanding Common Attacks (https://www.owasp.org/index.php/Category:Attack)
+	-- Examples: Account lockout, SQL injection, Brute Force, Cache Poisoning, XSS, CRSF, Format String Attack, etc.
+	-- Note: not all of the topics on this page are pertinent to PHP development
+   E. Vulnerabilities (https://www.owasp.org/index.php/Category:Vulnerability)
+	-- Examples: Dangerous Function, Hard Coded Password, PHP File Inclusion, Truncation Error, Uncaught Exception, etc.
+	-- Note: not all of the topics on this page are pertinent to PHP development
+   F. Controls (https://www.owasp.org/index.php/Category:Control)
+	-- Controls are defensive technologies or modules that are used to detect, deter, or deny attacks.
+	-- Examples: Authentication, Authorization, Session Management, Input Validation, etc.
+   G. Activities (https://www.owasp.org/index.php/Category:Activity)
+	-- key practices that are performed during the software development lifecycle in order to reduce risk or increase assurance in an application
+	-- Examples: Address Reported Security Issues, Identify Attack Surface, Log Review, Monitor Security Metrics, Threat Risk Modeling, etc.
+2. Make sure topics on security from php.net are covered if not already done above (http://www.php.net/manual/en/security.php)
+3. Labs should include short, focused exercises which demonstrate specific principles
+	-- Preventing XSS attacks
+	-- Filtering and validating user input
+	-- Preventing SQL injection attacks
+	-- etc.
+4. Clear instructions to the instructor that they need to research:
+   A. Examples of attacks which have occurred recently
+   B. Tools and technologies which can help enhance security
+   C. Resources to help enhance security
+	-- Examples: Project Honeypot, White Hat Security Report, etc.
+
+Fri 06 Jan 2012
+---------------
+IAC Glasgow, 4th Floor, Eagle Building
+215 Bothwell Street
+Glasgow G2 7EZ
+
+Wed 04 Jan 2012
+---------------
+http://www.dentalwellness4u.com/Merchant2/merchant.mvc?Screen=CTGY&Store_Code=NDD&Category_Code=DVD
+
