@@ -1,13 +1,13 @@
 <?php
 // see PDO_SQLSRV.md readme file first!
 
-// Create database connection
-$host = 'asus.windoze';
+// Database params
 $tcp  = '192.168.3.126';
 $port = 1433;
 $user = "test";
-$database = "test";
 $password = "Password123";
+$database = "test";
+
 // Open connection
 try {
     // Database connect -- use one of the two statements below
@@ -19,13 +19,17 @@ try {
     // Execute
     $sth->execute();
     // Fetch results
-    // Fetch options: PDO::FETCH_NUM | PDO::FETCH_ASSOC | PDO::FETCH_OBJ etc.
-    while ($row = $sth->fetch(PDO::FETCH_LAZY)) {
-        echo var_export($row, TRUE);
-        //echo $row->pid;  // for object
-        //echo $row['pid']; // for array
+    $row = $sth->fetch(PDO::FETCH_ASSOC);
+    if ($row) {
+        $output = '<pre>';
+        $output .= implode("\t", array_keys($row)) . PHP_EOL;
+        $output .= implode("\t", $row) . PHP_EOL;
+        while ($row = $sth->fetch(PDO::FETCH_NUM)) {
+            $output .= implode("\t", $row) . PHP_EOL;
+        }
     }
-    echo PHP_EOL;
 } catch (PDOException $e) {
-    echo $e->getMessage();
+    $output .= $e->getMessage();
 }
+$output .= '</pre>';
+echo $output;
