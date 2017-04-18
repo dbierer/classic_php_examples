@@ -1,13 +1,14 @@
 #PHP PDO Access to Microsoft SQL Server from Ubuntu 16.04
 
 This document details how to get access to a Microsoft SQL Server database using `pdo_sqlsrv`.
+
 NOTE: as of this writing, was unable to get `sqlsrv` to work.
 
 ##Before You Start
 
 - Read these two documents:
-[https://docs.microsoft.com/en-us/azure/sql-database/sql-database-develop-php-simple](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-develop-php-simple)
-[https://github.com/Microsoft/msphpsql/issues/213](https://github.com/Microsoft/msphpsql/issues/213)
+  - [https://docs.microsoft.com/en-us/azure/sql-database/sql-database-develop-php-simple](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-develop-php-simple)
+  - [https://github.com/Microsoft/msphpsql/issues/213](https://github.com/Microsoft/msphpsql/issues/213)
 
 ##OBDC Driver Installation
 - Now run these commands:
@@ -19,7 +20,9 @@ sudo apt-get update
 sudo ACCEPT_EULA=Y apt-get install msodbcsql unixodbc-dev
 sudo apt-get install php7.1-dev 
 sudo apt-get install autoconf
-sudo pecl install pdo_sqlsrv-4.1.6.1
+// replace "x.y.z" with the appropriate version number
+// i.e. 4.6.1
+sudo pecl install pdo_sqlsrv-x.y.z
 ```
 - Confirm ODBC driver installation:
 ```
@@ -34,6 +37,10 @@ extension=pdo_sqlsrv.so
 ```
 - Run `php -i` to confirm SQLSRV support was added
 - NOTE: extensions (on my computer) were installed here: `/usr/local/lib/php/extensions/no-debug-non-zts-20160303/`
+- To find where your extension was installed run this command:
+```
+sudo find / -name pdo*.so
+```
 
 ##Zend Server
 - Copy the `pdo_sqlsrv.so` driver file from where it was installed (see above) to: `/usr/local/zend/lib/php_extensions`
