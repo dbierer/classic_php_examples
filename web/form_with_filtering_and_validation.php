@@ -1,4 +1,5 @@
 <?php
+// demonstrates a class which generates a form from configuration
 class MyForm
 {
     protected $output = '';
@@ -42,6 +43,8 @@ class MyForm
     }
 }
 
+// demonstrates form validation
+// @TODO: need to supply the value to the form element for re-display in case of validation failure
 class MyValidators
 {
     protected $messages;
@@ -62,7 +65,7 @@ class MyValidators
     }
     public function validate(array $data)
     {
-        foreach ($elements as $item) {
+        foreach ($this->config['elements'] as $item) {
             if (isset($data[$item['name']])) {
                 $clean[$item['name']] = $data[$item['name']];
                 if (isset($item['filters'])) {
@@ -143,7 +146,7 @@ $config = [
 $form = new MyForm($config);
 $validate = FALSE;
 if (isset($_POST['submit'])) {
-    $validate = new MyValidator($config, $filters, $validators);
+    $validate = new MyValidators($config, $filters, $validators);
     $validate->validate($_POST);
 }
     
@@ -162,7 +165,7 @@ if ($validate) {
     } else {
         echo 'DATA IS NOT VALID';
         echo '<br>';
-        echo '<ul>';
+        echo '<ul><li>';
         echo implode('<li>', $validate->getMessages());
         echo '</ul>';
     }
