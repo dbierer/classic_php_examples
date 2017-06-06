@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<data>
+    <users>
+        <firstName>John</firstName>
+        <lastName>Smith</lastName>
+        <isAlive>1</isAlive>
+        <age>25</age>
+        <address>
+            <street>21 2nd Street</street>
+            <city>Toronto</city>
+            <state_province>Ontario </state_province>
+            <postalCode>MC3 0C1</postalCode>
+        </address>
+        <phone>111-222-3333</phone>
+        <phone>444-555-6666</phone>
+    </users>
+</data>

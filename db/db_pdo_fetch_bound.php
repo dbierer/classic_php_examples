@@ -14,24 +14,16 @@ $line = array();
 $search = isset($_GET['Search']) ? (int) $_GET['Search'] : "";
 
 // Create database connection
-$mysql_host = "localhost";
-$mysql_database = "zend";
-$mysql_user = "zend";
-$mysql_password = "password";
+$pdo = include 'get_pdo.php';
 
 try {
-
-	// Database connect -- use one of the two statements below
-	// $dsn = 	"mysql:host=" . $mysql_host . ";dbname=" . $mysql_database";
-	$dsn = 	"mysql:host=" . $mysql_host . ";dbname=" . $mysql_database . ";unix_socket=/var/run/mysqld/mysqld.sock";
-	$dbh = new PDO(	$dsn, $mysql_user, $mysql_password);
 
 	// Proceed if the "OK" button was pressed
 	if ( isset($_GET['OK'])) {
 
 		// SQL prepare
 		$sql = "SELECT * FROM products AS p WHERE p.sku = ? LIMIT 1;";
-		$sth = $dbh->prepare($sql);
+		$sth = $pdo->prepare($sql);
 		$sth->bindColumn("sku", $sku);
 		$sth->bindColumn("pid", $pid);
 		$sth->bindColumn(3, $unit);
@@ -44,7 +36,7 @@ try {
 	
 	// Pull list of SKU numbers
 	$sql = "SELECT sku FROM products;";
-	$sth = $dbh->prepare($sql);
+	$sth = $pdo->prepare($sql);
 	$sth->execute();
 	while ( $line = $sth->fetch(PDO::FETCH_NUM)) {		
     	// Stuff SKU into its own array
@@ -57,7 +49,7 @@ try {
 
 }
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">

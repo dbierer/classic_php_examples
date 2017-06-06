@@ -1,7 +1,6 @@
 <?php
+// ORIGINAL mysql extension: doesn't work in PHP 7.0 and above!!!
 // MySQL parameters
-//$mysql_host = "127.0.0.1" + local mysql socket;
-//$mysql_host = "localhost:/var/run/mysqld/mysqld.sock";
 $mysql_host = "localhost";
 $mysql_database = "zend";
 $mysql_user = "zend";

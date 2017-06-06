@@ -10,19 +10,12 @@ function results($sth) {
 $cost = 50.00;
 $qty  = 100;
 // Create database connection
-$mysql_host = "localhost";
-$mysql_database = "zend";
-$mysql_user = "zend";
-$mysql_password = "password";
+$pdo = include 'get_pdo.php';
 // Open connection
 try {
-	// Database connect -- use one of the two statements below
-	// $dsn = 	"mysql:host=" . $mysql_host . ";dbname=" . $mysql_database";
-	$dsn = 	"mysql:host=" . $mysql_host . ";dbname=" . $mysql_database . ";unix_socket=/var/run/mysqld/mysqld.sock";
-	$dbh = new PDO(	$dsn, $mysql_user, $mysql_password);
 	// SQL prepare
 	$sql = "SELECT * FROM products WHERE cost > :cost AND qty_oh < :qty";
-	$sth1 = $dbh->prepare($sql);
+	$sth1 = $pdo->prepare($sql);
 	// Bind Param passes by ref = can only bind variables
 	$sth1->bindParam(':cost', $cost);
 	$sth1->bindParam(':qty', $qty, PDO::PARAM_INT);
@@ -32,7 +25,7 @@ try {
 	// Fetch results
 	results($sth1);
 	// Bind Value lets you pass values or variables
-	$sth2 = $dbh->prepare($sql);
+	$sth2 = $pdo->prepare($sql);
 	$sth2->bindValue(':cost', 50);
 	$sth2->bindValue(':qty', $qty, PDO::PARAM_INT);
 	var_dump($sth2);
