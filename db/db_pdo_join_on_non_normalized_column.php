@@ -29,7 +29,7 @@ $pdo = include 'get_pdo.php';
 try {
     
     // get list of customers + products based on non-normalized column "products_purchased"
-    $stmt = $pdo->query("SELECT * FROM products AS p JOIN customers AS c ON p.sku = LIKE '%'+c.products_purchased+'%'");
+    $stmt = $pdo->query("SELECT * FROM products AS p JOIN customers AS c ON c.products_purchased LIKE CONCAT('%', p.sku, '%')");
     var_dump($stmt->fetchAll(PDO::FETCH_ASSOC));
     
 } catch (PDOException $e) {
