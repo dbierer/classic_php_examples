@@ -1,0 +1,1 @@
+{"options":{},"indexes":[{"v":2,"key":{"_id":1},"name":"_id_","ns":"sweetscomplete.customers"},{"v":2,"key":{"purch_history":1.0},"name":"purch_history_1","ns":"sweetscomplete.customers"}],"uuid":"86573921e1f949b8a3cc7a45dbdd7c3b"}

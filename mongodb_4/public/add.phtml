@@ -1,0 +1,95 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Sweets Complete | Add Purchase</title>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html">
+<meta name ="description" content ="Sweets Complete">
+<meta name="keywords" content="">
+<link rel="stylesheet" href="css/main.css" type="text/css">
+<link rel="shortcut icon" href="images/favicon.ico?v=2" type="image/x-icon" />
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+$( function() {
+    $( "#names" ).autocomplete({
+      source: "/json.php?cust_name=1",
+      minLength: 1
+    });
+    $( "#products" ).autocomplete({
+      source: "/json.php?prod_title=1",
+      minLength: 1
+    });
+  }
+);
+</script>
+</head>
+<body>
+<div id="wrapper">
+    <div id="maincontent">
+
+    <div id="header">
+        <div id="logo" class="left">
+            <a href="index.php"><img src="images/logo.png" alt="SweetsComplete.Com"/></a>
+        </div>
+        <div class="right marT10">Welcome Admin</div>
+        <ul class="topmenu">
+        <li><a href="http://sweetscomplete.com/?page=about">About Us</a></li>
+        <li><a href="http://sweetscomplete.com/?page=products">Products</a></li>
+        <li><a href="http://sweetscomplete.com/?page=specials">Specials</a></li>
+        <li><a href="http://sweetscomplete.com/?page=contact">Contact Us</a></li>
+        </ul>
+        <br>
+        <div class="banner"><p></p></div>
+        <br class="clear"/>
+    </div> <!-- header -->
+
+    <!-- // *** $page has been filtered, validated and sanitized -->
+    <div class="content">
+
+
+    <div class="product-list">
+        <h2>Add Purchase</h2>
+        <form action="add.php" method="post" >
+            <table style="width:50%;">
+            <tr>
+                <th>Customer</th>
+                <td><input id="names" name="name" value="<?= $name ?>" /></td>
+            </tr>
+            <tr>
+                <th>Product</th>
+                <td><input id="products" name="product" value="<?= $product ?>" /></td>
+            </tr>
+            <tr>
+                <th>Quantity</th>
+                <td><input type="number" id="quantity" name="quantity" value="<?= $qty ?>" /></td>
+            </tr>
+            </table>
+            <input type="submit" name="add" value="Add Purchase" class="button marT5" />
+            <input type="submit" name="cancel" value="Cancel" class="button marT5" />
+            <br /><br />
+            <?= $message; ?>
+        </form>
+    </div><!-- product-list -->
+
+    <br class="clear-all"/>
+    </div><!-- content -->
+
+    </div><!-- maincontent -->
+
+    <div id="footer">
+        <div class="footer">
+            Copyright &copy; 2018 sweetscomplete.com. All rights reserved. <br/>
+        <a href="http://sweetscomplete.com/?page=about">About Us</a> | <a href="http://sweetscomplete.com/?page=products">Products</a> | <a href="http://sweetscomplete.com/?page=specials">Specials</a> | <a href="http://sweetscomplete.com/?page=contact">Contact Us</a>         <br />
+            <span class="contact">Tel: +44-1234567890&nbsp;
+            Fax: +44-1234567891&nbsp;
+            <!-- // *** should "obscure" email address to avoid harvesting, which leads to SPAM! -->
+            Email:sales&#64;sweetscomplete.com</span>
+        </div>
+    </div><!-- footer -->
+
+</div><!-- wrapper -->
+
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Sweets Complete | Purchases Admin</title>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html">
+<meta name ="description" content ="Sweets Complete">
+<meta name="keywords" content="">
+<link rel="stylesheet" href="css/main.css" type="text/css">
+<link rel="shortcut icon" href="images/favicon.ico?v=2" type="image/x-icon" />
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+</head>
+<body>
+<div id="wrapper">
+    <div id="maincontent">
+
+    <div id="header">
+        <div id="logo" class="left">
+            <a href="index.php"><img src="images/logo.png" alt="SweetsComplete.Com"/></a>
+        </div>
+        <div class="right marT10">Welcome Admin</div>
+        <ul class="topmenu">
+        <li><a href="http://sweetscomplete.com/?page=about">About Us</a></li>
+        <li><a href="http://sweetscomplete.com/?page=products">Products</a></li>
+        <li><a href="http://sweetscomplete.com/?page=specials">Specials</a></li>
+        <li><a href="http://sweetscomplete.com/?page=contact">Contact Us</a></li>
+        </ul>
+        <br>
+        <div class="banner"><p></p></div>
+        <br class="clear"/>
+    </div> <!-- header -->
+
+    <!-- // *** $page has been filtered, validated and sanitized -->
+    <div class="content">
+
+    <div class="product-list">
+        <h2>Purchases Admin</h2>
+        <form name="dates" method="get" action="/index.php" id="date_search">
+        <table>
+            <tr>
+                <td>Start Date</td><td><input type="date" name="start_date" value="<?= $start_date ?>" /></td>
+                <td>End Date</td><td><input type="date" name="end_date" value="<?= $end_date ?>" /></td>
+                <td>Limit</td><td><input type="number" name="limit" value="<?= $limit ?>" style="width:50px;"/></td>
+                <td><input type="submit" name="submit" value="Search" class="button marT5" /></td>
+                <td><a href="/add.php">NEW PURCHASE</a></td>
+            </tr>
+        </table>
+        </form>
+        <table id="purchases" class="display" style="width:100%">
+        <thead>
+            <tr>
+                <th>Cust Name</th>
+                <th>Prod Title</th>
+                <th>Amount</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        </table>
+    </div><!-- product-list -->
+
+    <br class="clear-all"/>
+    </div><!-- content -->
+
+    </div><!-- maincontent -->
+
+    <div id="footer">
+        <div class="footer">
+            Copyright &copy; 2018 sweetscomplete.com. All rights reserved. <br/>
+        <a href="http://sweetscomplete.com/?page=about">About Us</a> | <a href="http://sweetscomplete.com/?page=products">Products</a> | <a href="http://sweetscomplete.com/?page=specials">Specials</a> | <a href="http://sweetscomplete.com/?page=contact">Contact Us</a>         <br />
+            <span class="contact">Tel: +44-1234567890&nbsp;
+            Fax: +44-1234567891&nbsp;
+            <!-- // *** should "obscure" email address to avoid harvesting, which leads to SPAM! -->
+            Email:sales&#64;sweetscomplete.com</span>
+        </div>
+    </div><!-- footer -->
+
+</div><!-- wrapper -->
+
+<!-- javascript -->
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<script>
+$(document).ready(function() {
+    $('#purchases').DataTable( {
+        "ajax": "<?= $ajax ?>"
+    } );
+} );
+</script>
+</body>
+</html>

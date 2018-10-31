@@ -1,0 +1,146 @@
+ /* Font Definitions */
+ @font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:10.0pt;
+	margin-left:0in;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+h1
+{	mso-style-link:"Heading 1 Char";
+	line-height:115%;
+	page-break-after:avoid;
+	font-size:14.0pt;
+	font-family:"Calibri","sans-serif";
+	color:#7B0B06;
+	font-weight:bold;
+	font-size:48.0pt;
+}
+p
+	{margin-right:0in;
+	margin-left:0in;
+	font-size:10.0pt;
+	font-family:"Tahoma","sans-serif";
+}
+p.MsoAcetate, li.MsoAcetate, div.MsoAcetate
+	{mso-style-link:"Balloon Text Char";
+	margin:0in;
+	margin-bottom:.0001pt;
+	font-size:8.0pt;
+	font-family:"Tahoma","sans-serif";}
+span.BalloonTextChar
+	{mso-style-name:"Balloon Text Char";
+	mso-style-link:"Balloon Text";
+	font-family:"Tahoma","sans-serif";}
+span.Heading1Char
+	{mso-style-name:"Heading 1 Char";
+	mso-style-link:"Heading 1";
+	font-family:"Calibri","sans-serif";	color:#7B0B06;
+	font-weight:bold;}
+.container {
+	background-image: url("http://localhost/WorkingFiles/Chapter2/images/BG.png");
+	background-position: top left;
+	background-repeat: no-repeat;
+	width: 1280px;
+	height: 800px;
+}
+a {
+	color: gray;
+	text-decoration: none;
+}
+a:hover {
+	color: #FF8800;
+	font-weight: bold;
+}
+a:active {
+	color: blue;
+	font-weight: bold;
+}
+html {
+	overflow: hidden;
+}
+.MsoChpDefault
+	{font-family:"Calibri","sans-serif";}
+.MsoPapDefault
+	{margin-bottom:10.0pt;
+	line-height:115%;}
+.MsoTableGrid {
+	border-collapse:collapse;
+	border:none;
+	margin-left:6.75pt;
+	margin-right:6.75pt;
+}
+.MsoNormal {
+	margin-bottom:0in;
+	margin-bottom:.0001pt;
+	line-height: normal;
+}
+.header {
+	float: left;
+	width: 1280px;
+	height: 50px;
+	margin-left: 200px;
+	font-size:14.0pt;
+	font-family:"Calibri","sans-serif";
+	color:#FF8800;
+	font-weight:bold;
+	font-size:48.0pt;
+}
+.footer {
+	float: left;
+	width: 1280px;
+	height: 20px;
+	text-align: center;
+}
+.horizontal_header_spacer {
+	float: left;
+	width: 1280px;
+	height: 120px;
+	text-align: center;
+}
+.horizontal_spacer {
+	float: left;
+	width: 1280px;
+	height: 40px;
+	text-align: center;
+}
+.vertical_spacer {
+	float: left;
+	width: 20px;
+	height: 800px;
+	text-align: center;
+}
+.col1 {
+	float: left;
+	width:150px;
+	height: 800px;
+	border:none;
+	font-size:12pt;
+	font-family:"Tahoma","sans-serif";
+	font-weight: bold;
+	color:#FF8800;
+}
+.col2 {
+	float: left;
+	width:600px;
+	height: 800px;
+	border:none;
+	line-height:10pt;
+	font-size:8.5pt;
+	font-family:"Tahoma","sans-serif";
+	color:black;
+}
+.col3 {
+	float: left;
+	width:400px;
+	height: 800px;
+	border:none;
+}

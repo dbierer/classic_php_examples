@@ -1,0 +1,38 @@
+/* Layout */
+body {
+	font-family: Arial, Verdana, Helvetica, sans-serif; 
+	font-size:12px;
+	color:#333333;
+	margin:0;
+	padding:0;
+	background:#FFFFFF;
+	font-size-adjust:none;
+	font-stretch:normal;
+	font-variant:normal;
+	text-align:center; 
+}
+
+#wrapper {width:850px; margin:0 auto; padding:0;}
+#maincontent {text-align:left; margin:0; padding:0;}
+#leftnav {float:left; width:200px; margin:0; padding:0;}
+#rightnav {float:left; width:650px; margin:0; padding:0;}
+#mainleft {float:left; width:428px; margin:0; padding:0;}
+#mainright {float:right; width:172px; margin:0; padding:0;}
+
+#header {padding:0; margin:0;}
+
+#footer {margin:0; padding:0;}
+
+/* EARTHPRODUCT.NET */
+#earthproduct-net  {background: url(../images/bg_header.gif) no-repeat center top #79b2cf;}
+#earthproduct-net  #rightnav {width:590px; padding:0 0 15px 5px;}
+#earthproduct-net #logo {
+	background: url(../images/logo.png) no-repeat left top;
+	width:200px;
+	height:42px;
+	text-indent:-9999px;
+	margin:20px  0;
+}
+* html #earthproduct-net #logo {/* PNG Alpha IE Win ONLY */
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader (src='../images/logo.png', sizingMethod='scale');
+}

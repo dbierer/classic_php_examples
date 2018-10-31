@@ -1,0 +1,56 @@
+/* For all site */
+p, ul, form, h1, h2, h3, li {margin:0; padding:0;}
+h1 {font-size:1.5em;}
+h2 {font-size:1.3em;}
+h3 {font-size:1.2em;}
+h1, h2, h3 {font-family:Arial,Helvetica,sans-serif,Tahoma;}
+ul li {list-style:none; /*display:inline;*/}
+ul li.first {border-left:0px;}
+a {text-decoration:none; color:#3B1C00;}
+a:hover {text-decoration:underline; color:#3B1C00;}
+img {border:0;}
+table {width:100%; border-spacing:0; border-collapse:collapse; padding:0; margin:0;}
+th,td {border:1px solid #CCC; padding:5px;}
+
+.hide {display:none;}
+
+.left {float:left;}
+.right {float:right;}
+
+.txtcenter {text-align:center;}
+.txtright {text-align:right;}
+
+.marA10 {margin:10px;}
+.marR10 {margin-right:10px;}
+.marB10 {margin-bottom:10px;}
+.marT10 {margin-top:10px;}
+.marT5 {margin-top:5px;}
+.marL10 {margin-left:10px;}
+.marL0 {margin-left:0px !important;}
+.padL0 {padding-left:0px !important;}
+
+.width180 {width:180px;}
+
+/* Content style */
+.content {background:#ffffff;}
+
+/* Page */
+.page {padding:10px 10px;}
+.page #now {font-weight:bold; color:#000000;}
+
+/*Button*/
+.button {background:#FFF; color:#333; border:1px solid #999; padding:2px 5px; font-size:12px; font-weight:bold; cursor:pointer;
+	-moz-border-radius: 10px;
+	border-radius: 10px}
+.abutton {background:#FFF; color:#333; border:1px solid #999; padding:4px 15px; font-size:12px; font-weight:bold; cursor:pointer;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	display:block;
+	width:150px;
+	text-align:center;
+	font-family:verdana;}
+.abutton:hover {text-decoration:none;}
+
+.active {
+	color: blue;
+}

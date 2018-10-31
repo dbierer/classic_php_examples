@@ -1,0 +1,105 @@
+/* Header */
+#header {margin-top:15px;}
+#logo {margin:0 0 10px 0;}
+#rightnav {margin-top:15px;}
+
+/* Banner */
+.banner {
+	background:url(../images/banner.JPG) no-repeat;
+	height:230px;
+	border:1px solid #CCCCCC;
+	width:850px;
+	float:left;
+	-moz-border-radius: 10px;
+	border-radius: 10px 10px 10px 10px;
+}
+
+/* Top Menu */
+.topmenu {padding: 0px 0 5px; float:left;}
+.topmenu li {
+	background: none repeat scroll 0 0 #593125;
+    border: 1px solid #CCCCCC;
+    border-radius: 10px 10px 10px 10px;
+    float: left;
+    margin: 6px 0 0 5px;
+    padding: 5px;
+    text-align: center;
+    width: 194px;
+}
+.topmenu a {color:#FFFFFF; font-weight:bold; width: 194px; display:block;}
+.topmenu a:hover {text-decoration:none; color:#FEF4F6;}
+
+/* Search */
+.search {margin:15px 0; width:200px;}
+.search .s0 {
+	border: 1px solid #C7C7C7;
+    float: left;
+    font-size: 11px;
+    height: 17px;
+    padding: 4px 4px 0;
+    width: 180px;
+}
+.search .s1 {float:left;}
+.search .s2 {
+	border: 1px solid #C7C7C7;
+    float: left;
+    font-size: 11px;
+    height: 25px;
+    padding: 4px 4px 0;
+    width: 190px;
+}
+
+/* Intro */
+.intro {margin: 15px 0 0 10px; width: 640px;}
+.intro h3 {color:#3B1C00;}
+
+/* Categorylist */
+.product-list {margin-bottom:10px; clear:both;}
+.product-list h2 {padding:0px 0px 7px 0px; color:#3B1C00; border-bottom:1px dashed #3B1C00; margin-bottom: 5px;}
+.product-list li {float:left; width:190px; height:200px; margin:15px 3px 0px 3px; text-align:center; overflow:hidden; border:1px solid #CCC; padding:10px 9px;}
+.product-list .name {padding-top:5px;}
+.product-list .name a {color:#000000; font-weight:bold;}
+.product-list .view {clear:both; margin:5px 0;}
+.product-list .view a {padding:1px 0px; text-decoration:none;}
+
+.product-list .specials {margin:0 0 0 20px;}
+.product-list .specials li {
+	margin: 15px 0 0 20px;
+    padding: 15px;
+    width: 210px;
+}
+
+.product-list th {background:#F4f4f4;}
+.product-list td img {vertical-align:middle;}
+
+.product-list form label {float:left; width:120px;}
+.product-list form input {float:left; width:200px;}
+.product-list form p {clear:both; padding-top:5px;}
+.product-list form table td input {float:none; width:auto;}
+
+.images {float:left; width:370px;}
+.images img {border:1px solid #CCC;}
+.details {float:left; width:480px;}
+.details form label {width:25px;}
+.details form input {width:20px;}
+.details form input.button {width:120px; margin-left:10px;}
+.view {background:#f3f3f3; padding:3px 0px;}
+.product-list form p.view {background:none;}
+
+.pages {background:#FF9C1B; border:1px solid #CCC; padding:0px 7px;}
+
+/* Footer */
+.footer {padding:5px 0; background:#593125; color:#FFF; border:1px solid #CCC; margin-top:15px;
+	-moz-border-radius: 10px;
+	border-radius: 10px 10px 10px 10px;}
+.footer a {font-weight:bold; color:#FFF;}
+
+textarea[name=comments] {width:290px;}
+
+
+/* Clear */
+.clear {clear:both;}
+.clear-all {clear:both; border:0px; height:0; line-height:0; margin:0; padding:0; font-size:0;}
+
+/* Misc */
+.error { color: red; }

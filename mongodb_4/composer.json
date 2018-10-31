@@ -1,0 +1,8 @@
+{
+    "require": {
+        "mongodb/mongodb": "*"
+    },
+    "autoload": {
+        "psr-4": {"Application\\": "Application"}
+    }
+}
