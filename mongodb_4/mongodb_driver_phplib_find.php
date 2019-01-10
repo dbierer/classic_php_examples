@@ -17,8 +17,18 @@ db.customers.find(
 ).sort({balance:1});
 */
 
-$filter = ['country' => new Regex('UK'), 'balance' => ['$lt' => 100]];
-$projection = ['projection' => ['name' => 1, 'balance' => 1]];
+$filter = [
+    'country' => new Regex('UK'), 
+    'balance' => ['$lt' => 100]
+];
+$projection = [
+    'projection' => [
+        'name' => 1, 'balance' => 1
+    ],
+    'sort' => [
+        'balance' => 1
+    ]
+];
 try {
     $cursor = $collection->find($filter, $projection);
     foreach ($cursor as $document) {
