@@ -1,6 +1,0 @@
-AuthType Basic
-AuthName "Password Required"
-AuthUserFile /kunden/homepages/9/d232055694/htdocs/misc/.htpasswd
-Require user zend
-AddType x-mapp-php5 .php
-# Password!2
