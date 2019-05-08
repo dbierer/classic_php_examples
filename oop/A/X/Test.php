@@ -2,14 +2,10 @@
 // needs to go into ./A/X/Test.php
 namespace A\X;
 
-class Test {
-	protected $name = 'X-Test';
-	public function setName($name = 'Default')
-	{
-		$this->name = $name;
-	}
+class Test
+{
 	public function getName()
 	{
-		return $this->name;
+		return __CLASS__;
 	}
 }
