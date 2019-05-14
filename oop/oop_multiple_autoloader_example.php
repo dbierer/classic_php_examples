@@ -11,7 +11,11 @@ spl_autoload_register(
         $classes = [
             'A\X\Test' => __DIR__ . '/A/X/Test.php'
         ];
-        if (isset($classes[$class])) include_once $classes[$class];
+        if (isset($classes[$class])) {
+            $filename = $classes[$class];
+            printf("Class: %s\nFilename: %s\n", $class, $filename);
+            require_once $filename;
+        }
     }
 );
 
@@ -20,9 +24,9 @@ spl_autoload_register(
     function ($class) {
         echo "Build Path Autoloader\n";
         $filename = __DIR__ . DIRECTORY_SEPARATOR . str_ireplace('\\', DIRECTORY_SEPARATOR, $class) . '.php';
-        printf("Class: %s\nFilename: %s\n", $class, $filename);
         if (file_exists($filename)) {
-            include $filename;
+            printf("Class: %s\nFilename: %s\n", $class, $filename);
+            require_once $filename;
         } else {
             throw new Exception('Unable to locate file');
         }
