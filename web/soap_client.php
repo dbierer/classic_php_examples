@@ -22,7 +22,7 @@ $startTime = new DateTime();
 $numDays = 7;
 $params = '';
 $weather = '';
-$wsdl = 'http://graphical.weather.gov/xml/SOAP_server/ndfdXMLserver.php?wsdl';
+$wsdl = 'https://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl';
 
 // Get info from HTML form
 $currentLatLon = (isset($_GET['city'])) ? strip_tags(urldecode($_GET['city'])) : '';
