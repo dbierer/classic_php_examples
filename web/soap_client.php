@@ -24,7 +24,7 @@ $params = '';
 $weather = '';
 $wsdl = 'https://graphical.weather.gov/xml/SOAP_server/ndfdXMLserver.php?wsdl';
 $options = [
-    'cache_wsdl'     => WSDL_CACHE_NONE,
+//    'cache_wsdl'     => WSDL_CACHE_NONE,
     'trace'          => 1,
     'stream_context' => stream_context_create(
         [

@@ -2,23 +2,21 @@
 // renames files according to regex preg_replace() patterns
 // CLI only!
 
-define('DEFAULT_FN_FILTER', '/./');     // i.e. any character
-
-$usage     = "Usage:\nphp bulk_rename.php <SEARCH_REGEX> <REPLACE_REGEX> [<START_DIR>]\n"
-           . "      SEARCH_REGEX is the 1st argument to 'preg_replace()'\n"
-           . "      REPLACE_REGEX is the 2nd argument to 'preg_replace()'\n"
-           . "      If START_DIR is blank, defaults to current directory\n"
+$usage     = "Usage:\nphp bulk_rename.php [--dir=PATH] [--regex=REGEX] [--replace=STRING] [--prepend=PREFIX] [--start=STRING]\n"
+           . "      REGEX is the 1st argument to 'preg_replace()'\n"
+           . "      REPLACE is the 2nd argument to 'preg_replace()'\n"
+           . "      If PATH is blank, defaults to current directory\n"
+           . "      Use '--prepend=xxx' and '--start=yyy' in place of '--regex' and '--replace'\n"
            . "\n"
            . "Example: rename all *.jpg with *.jpeg\n"
-           . "    php bulk_rename.php '/(.*)\.jpg/' '$1.jpeg'\n";
+           . "    php bulk_rename.php --regex='/(.*)\.jpg/' --replace='$1.jpeg'\n"
+           . "Example: replace all imageXXX.jpg with demo_XXX.jpeg\n"
+           . "    php bulk_rename.php --start=image --prepend=demo_\n";
 
-$search    = $argv[1] ?? '';
-$replace   = $argv[2] ?? '';
-$start_dir = $argv[3] ?? __DIR__;
-$found     = [];
 // define functions
+
 /**
- * Performs replacements and renames file
+ * Performs replacements and renames file using preg_replace
  *
  * @param string $fn = filename
  * @param string $search == 1st arg to preg_replace()
@@ -27,7 +25,7 @@ $found     = [];
  */
 function replace($fn, $search, $replace)
 {
-    if (!file_exists($fn)) return FALSE;
+    if (!file_exists($fn)) return $fn;
     $path  = dirname($fn);
     $oldFn = basename($fn);
     $newFn = preg_replace($search, $replace, $oldFn);
@@ -36,19 +34,82 @@ function replace($fn, $search, $replace)
         rename($fn, $newFn);
     return $newFn;
 }
-if (!$search || !$replace) {
-    echo $usage;
-    exit('Unable to continue');
+
+/**
+ * Prepends filename with $prepend if it starts with $start
+ *
+ * @param string $fn = filename
+ * @param string $start == string eligible filename starts with
+ * @param string $prepend == string to prepend to filename
+ * @return string == revised filename
+ */
+function prepend($fn, $start, $prepend)
+{
+    if (!file_exists($fn)) return $fn;
+    $path  = dirname($fn);
+    $oldFn = basename($fn);
+    if (strpos($oldFn, $start) !== 0) return $fn;
+    $newFn = $prepend . $oldFn;
+    $newFn = str_replace('//', '/', $path . '/' . $newFn);
+    if (basename($newFn) != basename($fn))
+        rename($fn, $newFn);
+    return $newFn;
 }
 
-echo 'Searching for ' . $search . PHP_EOL;
+// init vars
+$dir     = __DIR__;
+$regex   = '';
+$replace = '';
+$start   = '';
+$prepend = '';
+$proceed = 0;
+
+for ($x = 1; $x < count($argv); $x++) {
+    if (empty($argv[$x])) break;
+    if (strpos($argv[$x], '=') === FALSE) continue;
+    [$arg, $val] = explode('=', $argv[$x]);
+    switch ($arg) {
+        case '--dir' :
+            $dir = $val;
+            break;
+        case '--regex' :
+            $regex = $val;
+            $proceed++;
+            break;
+        case '--replace' :
+            $replace = $val;
+            $proceed++;
+            break;
+        case '--start' :
+            $start = $val;
+            $proceed++;
+            break;
+        case '--prepend' :
+            $prepend = $val;
+            $proceed++;
+            break;
+        default :
+            echo "Invalid argument: $arg\n";
+    }
+}
+
+if ($proceed < 2) {
+    echo $usage;
+    exit("Unable to continue\n");
+}
+
+echo 'Searching for ' . ($regex ?? $start) . PHP_EOL;
 
 $it = new RecursiveIteratorIterator(
-        new RecursiveDirectoryIterator($start_dir,  FilesystemIterator::SKIP_DOTS));
+        new RecursiveDirectoryIterator($dir,  FilesystemIterator::SKIP_DOTS));
 
 foreach($it as $name => $info) {
     echo 'Processing: ' . $name . PHP_EOL;
-    $newFn = replace($name, $search, $replace);
+    if ($start) {
+        $newFn = prepend($name, $start, $prepend);
+    } else {
+        $newFn = replace($name, $regex, $replace);
+    }
     echo 'Replacement: ' . $newFn . PHP_EOL;
     $found[$name] = $newFn;
 }
