@@ -64,7 +64,7 @@ if ($currentLatLon) {
          * <part name="format" type="xsd:string"/>
          * </message>
          */
-        $weather = $soap->NDFDgenByDay($lat,$lon,$startTime->format('Y-m-d'),$numDays,$unit,$format);
+        $weather = $soap->NDFDgenByDay($lat,$lon,$startTime->format('Y-m-d'),$numDays,$units,$format);
     } catch (Exception $e) {
         $weather .= PHP_EOL;
         $weather .= 'Latitude: ' . $lat . ' | Longitude: ' . $lon . PHP_EOL;
