@@ -1,22 +1,15 @@
 <?php
-class Test
-{
-	public int|float $status = 0;
+function htmlSelectHtml( $config ) {
+	$html = '';
+    $html .= '<select name="gender">';
+    foreach ($config['select'] as $key => $value) {
+        $html .=  '<option value="' . $key . '">' . $value . '</option>';
+    }
+    $html .=  '</select>';
+    return $html;
 }
-$test = new Test();
-
-$test->status = 22;
-var_dump($test);
-
-$test->status = 22/7;
-var_dump($test);
-
-$test->status = FALSE;
-var_dump($test);
-
-$test->status = '22';
-var_dump($test);
-
-$test->status = 'TEST';
-var_dump($test);
-
+$config['select'] = ['M' => 'Male', 'F' => 'Female', 'X' => 'Other'];
+$dropdown = htmlSelectHtml($config);
+$title    = 'Hello World';
+$name     = 'Fred Flintstone';
+include __DIR__ . '/template.phtml';
