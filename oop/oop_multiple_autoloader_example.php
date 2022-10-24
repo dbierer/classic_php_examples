@@ -9,7 +9,8 @@ spl_autoload_register(
     function ($class) {
         echo "\nArray Lookup Autoloader\n";
         $classes = [
-            'A\X\Test' => __DIR__ . '/A/X/Test.php'
+            'A\X\Test' => __DIR__ . '/A/X/Test.php',
+            //'A\X\Whatever' => __DIR__ . '/A/X/Whatever.php'
         ];
         if (isset($classes[$class])) {
             $filename = $classes[$class];

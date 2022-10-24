@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<produce xmlns:ea="test">
+	<vegetables>
+		<vegetable unit="pound">
+			<name>tomatoes</name>
+			<price>2.99</price>
+		</vegetable>
+		<vegetable unit="pound">
+			<name>broccoli</name>
+			<price>3.99</price>
+		</vegetable>
+	</vegetables>
+	<fruits>
+		<fruit unit="pint">
+			<name>strawberries</name>
+			<price>4.99</price>
+			<time>seasonal</time>
+		</fruit>
+		<fruit unit="pint">
+			<name>bananas</name>
+			<price>2.99</price>
+			<time>seasonal</time>
+		</fruit>
+		<fruit unit="pint">
+			<name>cherries</name>
+			<price>6.99</price>
+			<time>seasonal</time>
+		</fruit>
+	</fruits>
+</produce>
