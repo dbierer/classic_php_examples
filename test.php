@@ -1,15 +1,18 @@
 <?php
-function htmlSelectHtml( $config ) {
-	$html = '';
-    $html .= '<select name="gender">';
-    foreach ($config['select'] as $key => $value) {
-        $html .=  '<option value="' . $key . '">' . $value . '</option>';
-    }
-    $html .=  '</select>';
-    return $html;
+$path = __DIR__ . '/*.txt';
+$search = 'printf';
+$list = glob(__DIR__ . '/*.php');
+foreach ($list as $fn) {
+	$found    = '';
+	$contents = file($fn);
+	foreach ($contents as $num => $line) {
+		if (strpos($line, $search) !== FALSE) {
+			$found .= printf("%4d : %s\n", $num, $line);
+		}
+	}
+	echo "Scanned: $fn\n";
+	echo $found;
 }
-$config['select'] = ['M' => 'Male', 'F' => 'Female', 'X' => 'Other'];
-$dropdown = htmlSelectHtml($config);
-$title    = 'Hello World';
-$name     = 'Fred Flintstone';
-include __DIR__ . '/template.phtml';
+
+
+

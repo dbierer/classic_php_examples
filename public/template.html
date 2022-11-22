@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <style>
+        .error {color: #FF0000;}
+    </style>
+</head>
+<body>
+
+
+<form action="form.php" method="post">
+    <p>Your name: <input type="text" name="username" /><span class='error'>* <?= $usernameErr;?></span></p>
+    <p>Your e-mail: <input type="text" name="email" /><span class='error'>* <?= $emailnameErr;?></span></p>
+    <p>Your password: <input type="text" name="password" /><span class='error'>* <?= $passwordErr;?></span></p>
+    <p><input type="submit" /></p>
+</form>
+
+
+</body>
+</html>
