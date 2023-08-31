@@ -1,6 +1,6 @@
 <?php
 // echo 'Usage: php ' . basename(__FILE__) . ' FILENAME [PASSWORD] [IV] [TAG]' . PHP_EOL;
-$usage = echo 'Usage: php ' . basename(__FILE__) . ' FILENAME [PASSWORD] [IV] [TAG]' . PHP_EOL;
+$usage = 'Usage: php ' . basename(__FILE__) . ' FILENAME [PASSWORD] [IV] [TAG]' . PHP_EOL;
 
 // change as needed; use openssl_get_cipher_methods() if unsure
 $algo = 'aes-256-gcm';
@@ -13,7 +13,7 @@ $tag = $argv[4] ?? '';
 
 // bail if file not found
 if (empty($fn) || !file_exists($fn)) {
-    exit ('Unable to locate file: ' . $fn . PHP_EOL);
+    exit ('Unable to locate file: ' . $fn . PHP_EOL . $usage);
 } else {
     $contents = file_get_contents($fn);
 }
