@@ -3,7 +3,7 @@
  *      etag.php
  */
 // Set eTag
-$etag = "1.0.1_2021-03-08";
+$etag = md5(__FILE__) . filemtime(__FILE__);
 
 //$etag_match = $etag . "-gzip";
 $none_match = $_SERVER['HTTP_IF_NONE_MATCH'] ?? '';

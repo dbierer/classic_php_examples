@@ -4,7 +4,8 @@ interface ServiceInterface {
     public function setService(string $key, callable $service);
 }
 
-abstract class AbstractController implements ServiceInterface {
+abstract class AbstractController implements ServiceInterface
+{
 	public const FORMAT = 'l, d M Y H:i:s';
     protected array $services = [];
 }
