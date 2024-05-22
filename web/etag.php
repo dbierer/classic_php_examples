@@ -11,7 +11,7 @@ if ( $none_match == $etag ) {
 	header('304 Not Modified', TRUE, 304);
 	exit;
 } else {
-	header("ETag: $etag");
+	header('ETag: "' . $etag . '"');
 }
 ?>
 <!DOCTYPE html>
