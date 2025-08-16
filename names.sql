@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS `names` (
   `zip` int(5) NOT NULL,
   `phone` char(12) character set utf8 collate utf8_unicode_ci NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5000 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5000;
 
 --
 -- Dumping data for table `names`
